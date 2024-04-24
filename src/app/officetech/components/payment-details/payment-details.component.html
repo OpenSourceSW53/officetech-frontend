@@ -1,0 +1,80 @@
+<div class="content-container">
+<mat-card class="card" >
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Payment Details</mat-card-title>
+    <mat-card-subtitle><a href="">Go to the previous step</a></mat-card-subtitle>
+  </mat-card-header>
+  <img src="https://t3.ftcdn.net/jpg/03/07/83/16/360_F_307831681_MqVLpjXZOH7scHO0DtrduQD7FUXDKH4X.jpg" width="60%" style="margin:auto">
+  <mat-card-content>
+    <form type="email" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>CARDHOLDER NAME</mat-label>
+        <input matInput placeholder="John Doe">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>CARD NUMBER</mat-label>
+        <input matInput type="number" placeholder="999999999">
+      </mat-form-field>
+
+
+      <div class="expiration-cvv-container">
+        <mat-form-field class="expiration-field">
+          <mat-label>MONTH</mat-label>
+          <mat-select>
+            <mat-option value="01">January</mat-option>
+            <mat-option value="02">February</mat-option>
+            <mat-option value="03">March</mat-option>
+            <mat-option value="04">April</mat-option>
+            <mat-option value="05">May</mat-option>
+            <mat-option value="06">June</mat-option>
+            <mat-option value="07">July</mat-option>
+            <mat-option value="08">August</mat-option>
+            <mat-option value="09">September</mat-option>
+            <mat-option value="10">October</mat-option>
+            <mat-option value="11">November</mat-option>
+            <mat-option value="12">December</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>YEAR</mat-label>
+          <mat-select>
+            <mat-option value="2024">2024</mat-option>
+            <mat-option value="2025">2025</mat-option>
+            <mat-option value="2026">2026</mat-option>
+            <mat-option value="2027">2027</mat-option>
+            <mat-option value="2028">2028</mat-option>
+            <mat-option value="2029">2029</mat-option>
+            <mat-option value="2030">2030</mat-option>
+            <mat-option value="2031">2031</mat-option>
+            <mat-option value="2032">2032</mat-option>
+            <mat-option value="2033">2033</mat-option>
+            <mat-option value="2034">2034</mat-option>
+            <mat-option value="2035">2035</mat-option>
+            <mat-option value="2036">2036</mat-option>
+            <mat-option value="2037">2037</mat-option>
+            <mat-option value="2038">2038</mat-option>
+            <mat-option value="2039">2039</mat-option>
+            <mat-option value="2040">2040</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field class="cvv-field">
+          <mat-label>CVV</mat-label>
+          <input type="number" matInput placeholder="111" min="0" max="999">
+        </mat-form-field>
+      </div>
+      <input type="submit" value="pay">
+    </form>
+  </mat-card-content>
+</mat-card>
+
+  <div class="circle-container">
+  <div class="circle blue" id="c1"></div>
+  <div class="circle blue" id="c2"></div>
+  <div class="circle yellow" id="c3"></div>
+  <div class="circle yellow" id="c4"></div>
+  </div>
+</div>
