@@ -1,0 +1,61 @@
+mat-toolbar {
+  background-color: #fff;
+  color: #000;
+  justify-content: space-between;
+  padding: 3rem;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.toolbar__content-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.toolbar__content-title {
+  font-size: 1.5rem;
+}
+
+.toolbar__content-list ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.toolbar__list-item {
+  position: relative;
+  padding-right: 2rem;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+}
+
+.toolbar__list-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: .1vw;
+  height: 2rem;
+  background-color: #000;
+}
+
+.toolbar__list-item:last-child::before {
+  display: none;
+}
+
+.toolbar__list-item:last-child {
+  padding: 0;
+}
+
+.toolbar__list-item:hover {
+  opacity: 0.6;
+}
+
+.logo-officetech, .toolbar__content-title {
+  cursor: pointer
+}
+
+
+

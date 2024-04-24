@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <div class="toolbar__content-logo">
+    <img src="./assets/images/logo-officetech.png" alt="OfficeTech" role="img" class="logo-officetech" (click)="navigateTo('')">
+    <h2 class="toolbar__content-title" aria-label="title" (click)="navigateTo('')">OfficeTech</h2>
+  </div>
+
+  <div class="toolbar__content-list">
+    <ul>
+      <li
+        class="toolbar__list-item"
+        role="listitem"
+        aria-describedby="page"
+        *ngFor="let title of navbar_list"
+        (click)="navigateTo('/' + title.toLowerCase())"
+        [style.font-weight]="isActualRoute(title.toLowerCase())? 'bold' : '400'">{{title}}</li>
+    </ul>
+  </div>
+</mat-toolbar>
