@@ -4,7 +4,7 @@
     <h2 class="toolbar__content-title" aria-label="title" (click)="navigateTo('')">OfficeTech</h2>
   </div>
 
-  <div class="toolbar__content-list">
+  <div class="toolbar__content-list" id="toolbar__content-list">
     <ul>
       <li
         class="toolbar__list-item"
@@ -15,4 +15,9 @@
         [style.font-weight]="isActualRoute(title.toLowerCase())? 'bold' : '400'">{{title}}</li>
     </ul>
   </div>
+
+  <div class="toolbar__content-toggle" (click)="toggleNavbar()">
+    <i class="fa fa-bars" ></i>
+  </div>
+
 </mat-toolbar>
