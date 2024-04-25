@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle, MatCardSubtitle} from "@angular/material/card";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-card',
@@ -8,11 +9,11 @@ import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle, Ma
     MatCard,
     MatCardHeader,
     MatCardContent,
-    MatCardActions, MatCardTitle, MatCardSubtitle
+    MatCardActions, MatCardTitle, MatCardSubtitle, NgForOf
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-
+  @Input() data: any[] = []
 }
