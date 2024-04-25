@@ -7,7 +7,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
-input[type="submit"] {
+button {
   border-radius: 40px;
   margin: auto;
   width: 25%;
@@ -18,10 +18,13 @@ input[type="submit"] {
   border: none;
   padding: 0.5rem;
 }
-input[type="submit"]:hover {
+button:hover {
   transform: scale(1.1);
   animation-duration: 2s;
   cursor: pointer;
+}
+button[disabled]{
+  background-color: #5c5c5c !important;
 }
 
 p {
@@ -58,12 +61,18 @@ mat-form-field {
 }
 
 mat-label {
-  color: white !important;
+  font-size: 1vw;
+}
+@media only screen and (max-width: 1256px) {
+  mat-label {
+    font-size: 12px;
+  }
 }
 
 matInput {
   color: white !important;
 }
+
 
 /* Estilos para la alineación de los campos "EXPIRATION DATE" y "CVV" */
 .expiration-cvv-container {

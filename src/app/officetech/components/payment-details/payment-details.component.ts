@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import {MatCardModule} from "@angular/material/card";
 import {MatButton} from "@angular/material/button";
-import {FormControl, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormGroup, FormsModule, ReactiveFormsModule, FormControl, Validators} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {NgIf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {MatOption, MatSelect} from "@angular/material/select";
 
 @Component({
@@ -19,15 +19,28 @@ import {MatOption, MatSelect} from "@angular/material/select";
     ReactiveFormsModule,
     NgIf,
     MatSelect,
-    MatOption
+    MatOption,
+    NgForOf
   ],
   templateUrl: './payment-details.component.html',
   styleUrl: './payment-details.component.css'
 })
 export class PaymentDetailsComponent {
+  months = [
+    { value: '01', label: 'January' },
+    { value: '02', label: 'February' },
+    // ... add the remaining months
+  ];
 
-
-  constructor() {}
+  years = [2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040];
+  paymentForm: FormGroup;
+  constructor() {this.paymentForm = new FormGroup({
+    cardholderName: new FormControl('', Validators.required),
+    cardNumber: new FormControl('', [Validators.required, Validators.pattern(/^\d{16}$/)]),
+    expirationMonth: new FormControl('', Validators.required),
+    expirationYear: new FormControl('', Validators.required),
+    cvv: new FormControl('', [Validators.required, Validators.pattern(/^\d{3}$/)])
+  });}
 
   ngOnInit() {}
 }
