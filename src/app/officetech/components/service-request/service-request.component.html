@@ -1,0 +1,24 @@
+<div><h3>Request a new tech service</h3></div>
+
+<form class="example-form" [formGroup]="myForm">
+  <mat-form-field class="example-full-width custom-form-field">
+    <mat-label>Subject</mat-label>
+    <input type="text" matInput formControlName="subject" placeholder="Subject">
+    <mat-error *ngIf="myForm.get('subject').hasError('required')">Subject is <strong>required</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" placeholder="Describe the service you need" appAutoResize></textarea>
+    <mat-error *ngIf="myForm.get('description').hasError('required')">Description is <strong>required</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width custom-form-field">
+    <mat-label>Estimate pricing (s/.)</mat-label>
+    <input type="number" matInput formControlName="pricing" placeholder="s/.">
+    <mat-error *ngIf="myForm.get('pricing').hasError('required')">Pricing is <strong>required</strong></mat-error>
+  </mat-form-field>
+</form>
+
+<button class="publish" mat-flat-button color="primary" [disabled]="myForm.invalid">Publish</button>
+
