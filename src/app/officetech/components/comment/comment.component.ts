@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatCard, MatCardContent, MatCardHeader} from "@angular/material/card";
 
 @Component({
@@ -12,6 +12,11 @@ import {MatCard, MatCardContent, MatCardHeader} from "@angular/material/card";
   templateUrl: './comment.component.html',
   styleUrl: './comment.component.css'
 })
-export class CommentComponent {
+export class CommentComponent implements OnInit{
   @Input() element: any;
+  @Output() answers = new EventEmitter<any>();
+
+  ngOnInit() {
+    this.answers.emit(this.element.answers)
+  }
 }

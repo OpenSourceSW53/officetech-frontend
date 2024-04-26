@@ -16,6 +16,8 @@ import {NgForOf} from "@angular/common";
 })
 export class ForumComponent implements OnInit {
   data: any[] = [];
+  answers: any[] = [];
+
   constructor(private forumService: ForumService){
 
   }
@@ -28,10 +30,14 @@ export class ForumComponent implements OnInit {
     const result = await this.forumService.getForumPosts();
 
     for(let e in result) {
-      const post = new ForumCommentEntity(result[e].image, result[e].name, result[e].title, result[e].description);
+      const post = new ForumCommentEntity(result[e].image, result[e].name, result[e].title, result[e].description, result[e].answers);
 
       this.data.push(post);
     }
+  }
+
+  receiveAnswers(answers: any[]) {
+    this.answers = answers;
   }
 
 }
