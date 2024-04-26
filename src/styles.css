@@ -10,3 +10,12 @@ body {
   background-color: #DEF3FF;
   font-family: "Lexend Deca", sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
