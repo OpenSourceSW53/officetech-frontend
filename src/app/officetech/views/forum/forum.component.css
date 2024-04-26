@@ -97,3 +97,13 @@
   }
 }
 
+@media screen and (max-width: 630px) {
+  .comment__container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .comment__container-answer {
+    margin-bottom: 3.5rem;
+  }
+}
