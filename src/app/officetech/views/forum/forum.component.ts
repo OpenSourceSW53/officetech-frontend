@@ -16,7 +16,7 @@ import {NgForOf, NgIf} from "@angular/common";
   styleUrl: './forum.component.css'
 })
 export class ForumComponent implements OnInit {
-  type_user: number = 0; // here will be the type of the user bringing by event input, 1: team, 0: technician
+  type_user: number = 1; // here will be the type of the user bringing by event input, 1: team, 0: technician
   data: any[] = [];
   answers: any[] = [];
 

@@ -103,7 +103,8 @@
     gap: 1rem;
   }
 
-  .comment__container-answer {
+  .comment__container-answer, .comment__container-responses  {
     margin-bottom: 3.5rem;
   }
+
 }
