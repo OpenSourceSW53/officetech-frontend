@@ -16,7 +16,7 @@ button {
   font-size: 20px;
   color: white;
   border: none;
-  padding: 0.5rem;
+  padding: 2rem 0.5rem;
 }
 button:hover {
   transform: scale(1.1);
