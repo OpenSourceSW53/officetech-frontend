@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // Aquí podrías cargar los datos del usuario desde algún servicio o API
+
     this.name = "Nombre del Usuario";
     this.email = "usuario@example.com";
     this.phone = "123456789";
