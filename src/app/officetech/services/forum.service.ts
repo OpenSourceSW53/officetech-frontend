@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import ForumCommentEntity from "../entities/forum-comment.entity";
 
 @Injectable({
   providedIn: 'root'
@@ -6,10 +7,10 @@ import { Injectable } from '@angular/core';
 export class ForumService {
 
   constructor() { }
-
-  async getForumPosts() {
-    return[
+  async getForumPosts(): Promise<ForumCommentEntity[]> {
+    const rawData = [
       {
+        id: 1,
         'image': 'https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/nekolas-profile.png',
         'name': 'Nicola Hotman',
         'title': 'Networking Issue',
@@ -30,6 +31,7 @@ export class ForumService {
         ]
       },
       {
+        id: 2,
         'image': 'https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/arigeimpleis.jpg',
         'name': 'Arian Rodriguez',
         'title': 'Compatibility Issues',
@@ -42,6 +44,7 @@ export class ForumService {
         ]
       },
       {
+        id: 3,
         'image': 'https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/nekolas-profile.png',
         'name': 'Nicola Hotman',
         'title': 'Networking Issue',
@@ -54,5 +57,15 @@ export class ForumService {
         ]
       }
     ]
+    return rawData.map(post => new ForumCommentEntity(
+      post.id,
+      post.image,
+      post.name,
+      post.title,
+      post.description,
+      post.answers
+    ));
   }
+
+
 }

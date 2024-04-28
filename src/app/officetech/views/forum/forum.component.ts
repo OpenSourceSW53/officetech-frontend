@@ -3,12 +3,15 @@ import {CommentComponent} from "../../components/comment/comment.component";
 import {ForumService} from "../../services/forum.service";
 import ForumCommentEntity from "../../entities/forum-comment.entity";
 import {NgForOf, NgIf} from "@angular/common";
+import {Router} from "@angular/router";
+import {ResponsesComponent} from "../../components/responses/responses.component";
 
 @Component({
   selector: 'app-forum',
   standalone: true,
   imports: [
     CommentComponent,
+    ResponsesComponent,
     NgForOf,
     NgIf
   ],
@@ -20,9 +23,10 @@ export class ForumComponent implements OnInit {
   data: any[] = [];
   answers: any[] = [];
 
-  constructor(private forumService: ForumService){
+  constructor(private forumService: ForumService,private router: Router){
 
   }
+
 
   async ngOnInit() {
     await this.getForumPosts();
@@ -32,18 +36,19 @@ export class ForumComponent implements OnInit {
     const result = await this.forumService.getForumPosts();
 
     for(let e in result) {
-      const post = new ForumCommentEntity(result[e].image, result[e].name, result[e].title, result[e].description, result[e].answers);
+      const post = new ForumCommentEntity(result[e].id,result[e].image, result[e].name, result[e].title, result[e].description, result[e].answers);
+      console.log(result[e].answers)
 
       this.data.push(post);
     }
   }
 
-  receiveAnswers(answers: any[]) {
+  async receiveAnswers(answers: any[]) {
     this.answers = answers;
   }
 
-  setTypeUser(type: number) {
-    this.type_user = type;
-  }
 
+  async   getResponses(id: number) {
+    this.router.navigate(['/publish', id]);
+  }
 }
