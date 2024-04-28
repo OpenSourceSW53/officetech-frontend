@@ -4,6 +4,7 @@ import {MatFormField, MatHint, MatLabel, MatSuffix} from "@angular/material/form
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
 import {MatInput} from "@angular/material/input";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-subscription',
@@ -24,5 +25,8 @@ import {MatInput} from "@angular/material/input";
   styleUrl: './subscription.component.css'
 })
 export class SubscriptionComponent {
-
+  constructor(private router: Router) {}
+  goToPaymentDetails() {
+    this.router.navigate(["sign-up", "subscription", "payment-details"]);
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "type_user": "admin",
+      "email": "yesipinkmen@hotmans.com",
+      "password": "yesi123"
+    },
+    {
+      "type_user": "technician",
+      "email": "yesitecnico@hotmans.com",
+      "password": "yesi321"
+    }
+  ]
+}

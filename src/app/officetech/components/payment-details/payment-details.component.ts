@@ -6,6 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {NgForOf, NgIf} from "@angular/common";
 import {MatOption, MatSelect} from "@angular/material/select";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-payment-details',
@@ -34,7 +35,7 @@ export class PaymentDetailsComponent {
 
   years = [2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040];
   paymentForm: FormGroup;
-  constructor() {this.paymentForm = new FormGroup({
+  constructor(private router: Router) {this.paymentForm = new FormGroup({
     cardholderName: new FormControl('', Validators.required),
     cardNumber: new FormControl('', [Validators.required, Validators.pattern(/^\d{16}$/)]),
     expirationMonth: new FormControl('', Validators.required),
@@ -43,4 +44,8 @@ export class PaymentDetailsComponent {
   });}
 
   ngOnInit() {}
+
+  returnSignUp() {
+    this.router.navigate(['sign-up']);
+  }
 }
