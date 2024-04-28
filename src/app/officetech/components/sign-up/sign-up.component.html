@@ -46,10 +46,10 @@
       <mat-radio-button value="2">Technician</mat-radio-button> <!-- colocar para que sean obligatorios-->
     </mat-radio-group>
 
-    <a href="#" target="_self" class="button">SIGN UP</a>
+    <a class="button" (click)="goToSubscription()" routerLink="sign-up/subscription">SIGN UP</a>
 
   </mat-card>
-  <h3 class="card-footer">Already have an account? <a href="" class="login-link">Log in</a></h3>
+  <h3 class="card-footer">Already have an account? <a class="login-link" (click)="goToSignIn()">Log in</a></h3>
 
 </div>
 

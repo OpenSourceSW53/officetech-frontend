@@ -5,6 +5,7 @@ import {MatInput} from "@angular/material/input";
 import {MatLabel} from "@angular/material/form-field";
 import {MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-in',
@@ -26,8 +27,11 @@ import {MatIcon} from "@angular/material/icon";
 })
 export class SignInComponent {
   hide = true;
-  constructor() {
+  constructor(private router: Router) {
     this.hide=true;
   }
 
+  goToSignUp() {
+    this.router.navigate(["sign-up"]);
+  }
 }
