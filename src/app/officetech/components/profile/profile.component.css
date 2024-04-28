@@ -1,0 +1,46 @@
+.card {
+  width: 300px;
+  margin: 100px auto;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.profile-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.profile-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-body p {
+  margin-bottom: 10px;
+}
+
+.dark-text {
+  color: #333;
+}
+
+.btn-edit {
+  border-radius: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+}
+
+.btn-edit:hover {
+  background-color: #0056b3;
+}
