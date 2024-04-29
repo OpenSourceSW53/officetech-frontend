@@ -1,11 +1,14 @@
 {
   "users": [
     {
+      "id": 1,
       "type_user": "company",
+      "name": "Yesi Hotman",
       "email": "yesipinkmen@hotmans.com",
       "password": "yesi123"
     },
     {
+      "id": 1,
       "type_user": "technician",
       "email": "yesitecnico@hotmans.com",
       "password": "yesi321"

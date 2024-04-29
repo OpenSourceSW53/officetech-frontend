@@ -8,6 +8,7 @@ import {MatIcon} from "@angular/material/icon";
 import {Router} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "../../services/auth/auth.service";
+import {UserEntity} from "../../entities/user-entity";
 
 @Component({
   selector: 'app-sign-in',
@@ -40,11 +41,21 @@ export class SignInComponent {
     this.router.navigate(["sign-up"]);
   }
 
-  signIn() {
+  async signIn() {
     console.log(this.email, this.pass);
-    const response = this.authService.signIn(this.email, this.pass);
-    if (response) {
+    const response: any = await this.authService.signIn(this.email, this.pass);
+    console.log('response: ', response)
 
+    if (response) {
+      const user = new UserEntity(
+        response.id,
+        response.name,
+        response.email,
+        response.password,
+        response.type_user
+      )
+
+      this.router.navigate(["home", response.type_user, response.id])
     }else{
       console.log('No se encontro el usuario');
     }

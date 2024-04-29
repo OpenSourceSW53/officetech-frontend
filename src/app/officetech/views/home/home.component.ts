@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import {ServicesCcompanyComponent} from "../../components/services-ccompany/services-ccompany.component";
+import {PanelComponent} from "../panel-services/panel-services.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    ServicesCcompanyComponent
+    PanelComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

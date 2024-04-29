@@ -23,7 +23,7 @@ export const routes: Routes = [
     component: PaymentDetailsComponent
   },
   {
-    path: "home",
+    path: "home/:type_user/:id",
     component: HomeComponent
   }
 ];

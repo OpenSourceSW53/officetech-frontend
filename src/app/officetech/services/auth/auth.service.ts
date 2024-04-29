@@ -11,21 +11,20 @@ export class AuthService {
     this.baseUrl = environment.baseUrl;
   }
 
-  signIn(email: string, password: string) {
-    const users = this.http.get<any>(`${this.baseUrl}/users`);
-    users.subscribe(
-      (data) => {
-        data.forEach((user: any) => {
-          if (user.email === email && user.password === password) {
-            console.log("User found")
-            return user;
-          }
-        })
-      },
-      (error) => {
-        console.error(error)
+  async signIn(email: string, password: string) {
+    try {
+      const users = await this.http.get<any>(`${this.baseUrl}/users`).toPromise();
+      const foundUser = users.find((user: any) => user.email === email && user.password === password);
+      if (foundUser) {
+        console.log("User found");
+        return foundUser;
+      } else {
+        console.log("User not found");
+        return null;
       }
-    )
-    return null;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
   }
 }
