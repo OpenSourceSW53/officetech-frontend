@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-services-ccompany',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './services-ccompany.component.css'
 })
 export class ServicesCcompanyComponent {
+  constructor(private router: Router){}
 
+  newComment() {
+    console.log('ola')
+    this.router.navigate(["new_comment"])
+  }
 }

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {MatToolbar} from "@angular/material/toolbar";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -22,7 +22,7 @@ export class HeaderComponent{
   */
   navbar_list: string[] = [];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.titlesNavbar();
   }
 

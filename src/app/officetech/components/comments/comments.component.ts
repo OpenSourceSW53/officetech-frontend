@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitleGroup,MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-comments',
@@ -17,5 +18,5 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrl: './comments.component.css'
 })
 export class CommentsComponent {
-
+  constructor(private router: Router){}
 }
