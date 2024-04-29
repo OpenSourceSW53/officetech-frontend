@@ -1,0 +1,99 @@
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+h1 {
+  color: black;
+  font-size: 48px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.tech-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 25%;
+  margin-left: 50px;
+  margin-right: 80px;
+}
+
+mat-card-title {
+  background-color: #FBD864;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.user-icon {
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+
+mat-card-subtitle {
+  font-weight: bold;
+  color: black;
+}
+
+mat-card-content {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 20px;
+}
+
+.text-box {
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid black;
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.comment-button {
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: #232F9B;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+}
+
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-right: 750px;
+}
+
+.rating {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating label {
+  cursor: pointer;
+  font-size: 14px;
+  color: black;
+}
