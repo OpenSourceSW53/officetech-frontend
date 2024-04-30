@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   phone: string = "";
   imgUrl: string = "";
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
 
@@ -21,5 +21,9 @@ export class ProfileComponent implements OnInit {
     this.email = "usuario@example.com";
     this.phone = "123456789";
     this.imgUrl = "url_de_la_imagen";
+  }
+
+  editProfile() {
+    this.router.navigate(["profile", "edit-profile"])
   }
 }

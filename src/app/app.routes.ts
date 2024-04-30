@@ -14,6 +14,7 @@ import {ProfileComponent} from "./officetech/components/profile/profile.componen
 import {ResponsesComponent} from "./officetech/components/responses/responses.component";
 import {PublishComponent} from "./officetech/components/publish/publish.component";
 import {ServiceRequestComponent} from "./officetech/components/service-request/service-request.component";
+import {EditProfileComponent} from "./officetech/components/edit-profile/edit-profile.component";
 
 export const routes: Routes = [
   {
@@ -36,6 +37,9 @@ export const routes: Routes = [
   {
     path: "profile",
     component: ProfileComponent
+  },
+  { path: "profile/edit-profile",
+    component: EditProfileComponent
   },
   {
     path: "sign-in",
