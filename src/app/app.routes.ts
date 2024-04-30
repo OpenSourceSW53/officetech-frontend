@@ -48,6 +48,10 @@ export const routes: Routes = [
     component: PublishComponent
   },
   {
+    path: "services/new_comment",
+    component: CommentsComponent
+  },
+  {
     path: "sign-up",
     component: SignUpComponent
   },

@@ -12,7 +12,6 @@ export class ServicesCompanyComponent {
   constructor(private router: Router){}
 
   newComment() {
-    console.log('ola')
-    this.router.navigate(["new_comment"])
+    this.router.navigate(["services", "new_comment"])
   }
 }
