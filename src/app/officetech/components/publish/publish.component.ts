@@ -42,18 +42,21 @@ export class PublishComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe(async params => {
+    this.route.params.subscribe( params => {
       const postId = +params['id'];  // Asegúrate de que 'id' sea el nombre correcto del parámetro.
       if (!isNaN(postId)) {
-        await this.loadPost(postId);
+        this.loadPost(postId);
       }
     });
   }
 
-  private async loadPost(postId: number) {
+  private loadPost(postId: number) {
     try {
-      const allPosts = await this.forumService.getForumPosts();
-      this.post = allPosts.find(p => p.id === postId);
+      this.forumService.getForumPosts().subscribe(
+        r=>{
+          this.post = r.find((post: any) => post.id === postId);
+        }
+      )
     } catch (error) {
       console.error('Error al cargar la publicación:', error);
     }

@@ -5,6 +5,13 @@ import { CommentComponent } from '../../../officetech/components/comment/comment
 import { ResponsesComponent } from '../../../officetech/components/responses/responses.component';
 import ForumCommentEntity from "../../../officetech/models/forum-comment.entity";
 import {ForumService} from "../../../officetech/services/forum/forum.service";
+import {
+  MatDialog,
+  MatDialogActions,
+  MatDialogContainer,
+  MatDialogContent,
+  MatDialogTitle
+} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-forum',
@@ -13,15 +20,20 @@ import {ForumService} from "../../../officetech/services/forum/forum.service";
     CommentComponent,
     ResponsesComponent,
     NgForOf,
-    NgIf
+    NgIf,
+    MatDialogContainer,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions
   ],
   templateUrl: './forum.component.html',
   styleUrl: './forum.component.css'
 })
 export class ForumComponent implements OnInit {
-  type_user: number = 1; // here will be the type of the user bringing by event input, 1: team, 0: technician
+  type_user: number = 0; // here will be the type of the user bringing by event input, 1: team, 0: technician
   data: any[] = [];
   answers: any[] = [];
+  showNewForm: boolean = false;
 
   constructor(private forumService: ForumService, private router: Router){
   }
@@ -46,12 +58,16 @@ export class ForumComponent implements OnInit {
     )
   }
 
-  async receiveAnswers(answers: any[]) {
+  receiveAnswers(answers: any[]) {
     this.answers = answers;
   }
 
-
-  async getResponses(id: number) {
-    this.router.navigate(['/publish', id]);
+  getResponses(id: number) {
+    this.router.navigate(['forum','responses', id]);
   }
+
+  newAnswer(id: number) {
+    this.router.navigate(['forum','publish', id]);
+  }
+
 }

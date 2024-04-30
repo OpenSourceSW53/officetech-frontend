@@ -11,6 +11,8 @@ import {PanelComponent} from "./public/pages/panel-services/panel-services.compo
 import {ForumComponent} from "./public/pages/forum/forum.component";
 import {HomeComponent} from "./public/pages/home/home.component";
 import {ProfileComponent} from "./officetech/components/profile/profile.component";
+import {ResponsesComponent} from "./officetech/components/responses/responses.component";
+import {PublishComponent} from "./officetech/components/publish/publish.component";
 
 export const routes: Routes = [
   {
@@ -36,6 +38,14 @@ export const routes: Routes = [
   {
     path: "sign-in",
     component: SignInComponent
+  },
+  {
+    path: "forum/responses/:id",
+    component: ResponsesComponent
+  },
+  {
+    path: "forum/publish/:id",
+    component: PublishComponent
   },
   {
     path: "sign-up",

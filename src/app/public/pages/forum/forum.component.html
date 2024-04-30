@@ -18,11 +18,10 @@
         <p aria-label="info" style="margin: 0">{{ data.length }} responses</p>
       </div>
 
-      <div class="comment__container-answer" *ngIf="!type_user">
+      <div class="comment__container-answer" *ngIf="!type_user" (click)="newAnswer(e.id)">
         Answer
       </div>
     </div>
   </div>
-
 </div>
 
