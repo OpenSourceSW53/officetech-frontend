@@ -10,16 +10,16 @@ import {CommentsComponent} from "./officetech/components/comments/comments.compo
 import {PanelComponent} from "./public/pages/panel-services/panel-services.component";
 import {ForumComponent} from "./public/pages/forum/forum.component";
 import {HomeComponent} from "./public/pages/home/home.component";
+import {ProfileComponent} from "./officetech/components/profile/profile.component";
 
 export const routes: Routes = [
   {
     path: "",
-    redirectTo: "/home",
-    pathMatch: "full"
+    component: HomeComponent
   },
   {
     path: "home",
-    component: HomeComponent
+    component: PanelComponent
   },
   {
     path: "forum",
@@ -28,6 +28,10 @@ export const routes: Routes = [
   {
     path: "services",
     component: ServicesCompanyComponent
+  },
+  {
+    path: "profile",
+    component: ProfileComponent
   },
   {
     path: "sign-in",

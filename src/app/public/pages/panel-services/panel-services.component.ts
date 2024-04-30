@@ -16,19 +16,25 @@ import {PanelItemsService} from "../../../officetech/services/panel/panel-items.
   styleUrl: './panel-services.component.css'
 })
 export class PanelComponent implements OnInit {
-  @Input() header_titles: string[] = []
+  @Input() header_titles: string[] = ["Service", "Technician", "Status", "Due"]
   data: any[] = []
 
   constructor(private panelService: PanelItemsService) {
 
   }
 
-  async ngOnInit() {
-    await this.getItems();
-    console.log(this.data)
+  ngOnInit() {
+    this.getItems();
   }
 
-  async getItems() {
-    this.data = await this.panelService.getItems();
+  getItems() {
+    this.panelService.getItems().subscribe(
+      r=>{
+        this.data = r
+      },
+      e=>{
+        console.log(e)
+      }
+    )
   }
 }
