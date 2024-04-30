@@ -5,9 +5,9 @@ import {CommonModule, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {ForumService} from "../../services/forum.service";
+import {ForumService} from "../../services/forum/forum.service";
 import {ActivatedRoute} from "@angular/router";
-import ForumCommentEntity from "../../entities/forum-comment.entity";
+import ForumCommentEntity from "../../models/forum-comment.entity";
 import {MatButtonModule} from '@angular/material/button';
 
 @Component({

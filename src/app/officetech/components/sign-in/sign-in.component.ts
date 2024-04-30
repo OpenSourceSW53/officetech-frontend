@@ -7,8 +7,8 @@ import {MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {Router} from "@angular/router";
 import {FormsModule} from "@angular/forms";
-import {AuthService} from "../../services/auth/auth.service";
-import {UserEntity} from "../../entities/user-entity";
+import {AuthService} from "../../../shared/services/auth/auth.service";
+import {UserEntity} from "../../models/user-entity";
 
 @Component({
   selector: 'app-sign-in',

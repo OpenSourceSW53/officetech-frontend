@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   templateUrl: './services-ccompany.component.html',
   styleUrl: './services-ccompany.component.css'
 })
-export class ServicesCcompanyComponent {
+export class ServicesCompanyComponent {
   constructor(private router: Router){}
 
   newComment() {

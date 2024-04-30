@@ -29,7 +29,7 @@ export class HeaderComponent{
   navigateTo(route: string) {
     this.router.navigate([route]);
   }
-  titlesNavbar(navbar_list: string[] = ["Home", "About", "Features", "Testimonials", "Sign Up"]) {
+  titlesNavbar(navbar_list: string[] = ["Home", "Forum", "Services", "Profile", "Sign Out"]) {
     this.navbar_list = navbar_list;
   }
 

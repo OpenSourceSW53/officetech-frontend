@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CardComponent} from "../../components/card/card.component";
-import {CardHeaderComponent} from "../../components/card-header/card-header.component";
-import {PanelItemsService} from "../../services/panel-items.service";
 import {NgForOf} from "@angular/common";
+import {CardComponent} from "../../../officetech/components/card/card.component";
+import {CardHeaderComponent} from "../../../officetech/components/card-header/card-header.component";
+import {PanelItemsService} from "../../../officetech/services/panel/panel-items.service";
 
 @Component({
   selector: 'app-panel-services',
