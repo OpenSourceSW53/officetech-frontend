@@ -13,6 +13,7 @@ import {HomeComponent} from "./public/pages/home/home.component";
 import {ProfileComponent} from "./officetech/components/profile/profile.component";
 import {ResponsesComponent} from "./officetech/components/responses/responses.component";
 import {PublishComponent} from "./officetech/components/publish/publish.component";
+import {ServiceRequestComponent} from "./officetech/components/service-request/service-request.component";
 
 export const routes: Routes = [
   {
@@ -50,6 +51,10 @@ export const routes: Routes = [
   {
     path: "services/new_comment",
     component: CommentsComponent
+  },
+  {
+    path: "services/new_tech_requirement",
+    component: ServiceRequestComponent
   },
   {
     path: "sign-up",

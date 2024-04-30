@@ -14,4 +14,8 @@ export class ServicesCompanyComponent {
   newComment() {
     this.router.navigate(["services", "new_comment"])
   }
+
+  newRequestService() {
+    this.router.navigate(["services", "new_tech_requirement"])
+  }
 }
