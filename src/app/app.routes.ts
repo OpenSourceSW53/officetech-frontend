@@ -17,9 +17,10 @@ import {ServiceRequestComponent} from "./officetech/components/service-request/s
 
 export const routes: Routes = [
   {
-    path: "",
+    path: "start",
     component: HomeComponent
   },
+  {path: '', pathMatch: 'full', redirectTo: 'start'},
   {
     path: "home",
     component: PanelComponent

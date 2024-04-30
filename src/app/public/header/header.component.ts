@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {MatToolbar} from "@angular/material/toolbar";
-import {NgClass, NgForOf, NgIf} from "@angular/common";
-import {ActivatedRoute, Router} from "@angular/router";
+import {NgClass, NgForOf, NgIf, Location} from "@angular/common";
+import {ActivatedRoute, Router, NavigationEnd } from "@angular/router";
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -22,15 +23,27 @@ export class HeaderComponent{
   */
   navbar_list: string[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location) {
     this.titlesNavbar();
+    console.log(location.path());
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      // Llama a la función que deseas ejecutar cuando la ruta cambie
+      this.titlesNavbar();
+    });
   }
 
   navigateTo(route: string) {
     this.router.navigate([route]);
   }
-  titlesNavbar(navbar_list: string[] = ["Home", "Forum", "Services", "Profile", "Sign Out"]) {
-    this.navbar_list = navbar_list;
+  titlesNavbar() {
+    if (this.location.path()=== '/start' || this.location.path()==='/sign-in'|| this.location.path()==='/log-in'|| this.location.path()==='/sign-up') {
+      this.navbar_list = ["Start","Sign-in"];
+    }
+    else{
+      this.navbar_list = ["Home", "Forum", "Services", "Profile", "Sign Out"];
+    }
   }
 
   isActualRoute(title: string) {

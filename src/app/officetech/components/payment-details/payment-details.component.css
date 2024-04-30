@@ -102,13 +102,7 @@ mat-card-content{
   top: -50px;
 }
 
-.circle{
-  position: absolute;
-  width: 25vw;
-  height: 25vw;
-  border-radius: 100%;
-  z-index: -1;
-}
+
 .blue{
   background: #2C3F84;
 }
@@ -116,21 +110,51 @@ mat-card-content{
   background: #FBD864;
 }
 
-#c1{top: 70%; left: -10%}
-#c2{top: 70%; left: 60%}
-#c3{top:20px; left:15% }
-#c4{top: -10px; left:80%}
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(4px);
+}
+
+#c1 {
+  width: 280px;
+  height: 280px;
+  background-color: #FBD864;
+  top: -5%;
+  left: 3%;
+}
+
+#c2{
+  width: 200px;
+  height: 200px;
+  background-color: #2C3F84;
+  top: 60%;
+  left: 12%;
+}
+
+#c3 {
+  width: 190px;
+  height: 190px;
+  background-color: #FBD864;
+  top: 80%;
+  left: 70%;
+}
+
+#c4 {
+  width: 260px;
+  height: 260px;
+  background-color: #2C3F84;
+  top: 20%;
+  left: 80%;
+}
 
 .circle-container {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  pointer-events: none; /* Ignore any user interactions with the circle-container */
+  z-index: -1;
 }
 
-.content-container {
-  position: flex;
-}
+
