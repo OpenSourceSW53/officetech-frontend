@@ -4,14 +4,12 @@ import {ProfileComponent} from "./officetech/components/profile/profile.componen
 import {EditProfileComponent} from "./officetech/components/edit-profile/edit-profile.component";
 
 
-const routes: Routes = [
-  { path: 'profile', component: ProfileComponent },
-  { path: 'edit-profile', component: EditProfileComponent },
-  { path: '', redirectTo: '/profile', pathMatch: 'full' }
+export const routes: Routes = [
+
+  {
+    path: 'profile/:id',
+    component: ProfileComponent
+  }
+
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

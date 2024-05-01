@@ -1,0 +1,93 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "type_user": "company",
+      "name": "Yesi Hotman",
+      "email": "yesipinkmen@hotmans.com",
+      "password": "yesi123"
+    },
+    {
+      "id": 2,
+      "type_user": "technician",
+      "email": "yesitecnico@hotmans.com",
+      "password": "yesi321"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "image": "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/nekolas-profile.png",
+      "name": "Nicola Hotman",
+      "title": "Networking Issue",
+      "description": "Hi everyone, we\"re experiencing some connectivity issues with our office network. Despite troubleshooting on our end, we\"re still unable to resolve the issue. Any suggestions on what might be causing this and how we can fix it?",
+      "answers": [
+        {
+          "name":  "Yesi Hotman",
+          "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, ensure that the network drivers on your devices are up to date."
+        },
+        {
+          "name":  "Yesi Hotman",
+          "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, ensure that the network drivers on your devices are up to date."
+        },
+        {
+          "name":  "Yesi Hotman",
+          "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, ensure that the network drivers on your devices are up to date."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/arigeimpleis.jpg",
+      "name": "Arian Rodriguez",
+      "title": "Compatibility Issues",
+      "description": "Hello tech community, we recently upgraded our operating system, and now we\"re encountering compatibility issues with some of our essential software applications. Has anyone else experienced similar issues, and if so, how did you address them?",
+      "answers": [
+        {
+          "name":  "Yesi Hotman",
+          "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, ensure that the network drivers on your devices are up to date."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/nekolas-profile.png",
+      "name": "Nicola Hotman",
+      "title": "Networking Issue",
+      "description": "Hi everyone, we\"re experiencing some connectivity issues with our office network. Despite troubleshooting on our end, we\"re still unable to resolve the issue. Any suggestions on what might be causing this and how we can fix it?",
+      "answers": [
+        {
+          "name":  "Yesi Hotman",
+          "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, ensure that the network drivers on your devices are up to date."
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "first": "Cloud Storage Solutions: Facilitate remote access to important files and data.",
+      "second": "James Gillighan, Software Engineer",
+      "third": "In progress",
+      "fourth": "4/5/2024"
+    },
+    {
+      "first": "Project Management Tools: Organize our internal tasks and ensure timely project delivery to our clients.",
+      "second": "Carlos Martinez, Project Lead",
+      "third": "Active",
+      "fourth": "14/2/2024"
+    }
+  ,
+    {
+      "first": "Customer Relationship Management (CRM) Software: Manage customer interactions and data throughout the customer lifecycle.",
+      "second": "Samantha Johnson, Customer Service",
+      "third": "In progress",
+      "fourth": "9/1/2023"
+    },
+    {
+      "first": "Data Analytics Tools: Analyze and visualize data to make informed business decisions.",
+      "second": "Liam O'Connell, Data Analyst",
+      "third": "Active",
+      "fourth": "4/5/2024"
+    }
+  ]
+}

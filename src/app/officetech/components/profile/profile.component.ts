@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe( params => {
       console.log(params);
-      const id = 2;
+      const id = 1;
       console.log('ID de usuario:', id);
       console.log(typeof id);
 
@@ -55,6 +55,10 @@ export class ProfileComponent implements OnInit {
         console.error('Error al cargar datos de usuario:', error);
       }
     }
+  editProfile() {
+    // Lógica para redirigir a la página de edición de perfil
+
+  }
   }
 
 
