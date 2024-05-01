@@ -17,6 +17,7 @@ mat-card {
   text-align: center;
   justify-content: center;
   padding: 40px;
+  font-family: "Lexend Deca", sans-serif;
 }
 
 .logo-container {
@@ -39,9 +40,9 @@ mat-card-header {
 }
 
 mat-card-title {
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: 400;
-
+  font-family: "Lexend Deca", sans-serif;
 }
 
 ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {

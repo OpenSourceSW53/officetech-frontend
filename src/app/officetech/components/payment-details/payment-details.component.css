@@ -19,7 +19,7 @@ button {
   padding: 2rem 0.5rem;
 }
 button:hover {
-  transform: scale(1.1);
+  transform: scale(1.025);
   animation-duration: 2s;
   cursor: pointer;
 }
@@ -42,6 +42,7 @@ mat-card-title {
 
 mat-card-subtitle a {
   color: #888888;
+  cursor: pointer;
 }
 
 a:hover {

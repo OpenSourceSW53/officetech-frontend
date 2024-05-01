@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatCard, MatCardHeader, MatCardTitle} from "@angular/material/card";
+import {MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle} from "@angular/material/card";
 import {MatFormField, MatHint, MatLabel, MatSuffix} from "@angular/material/form-field";
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
@@ -19,7 +19,8 @@ import {Router} from "@angular/router";
         MatIconButton,
         MatInput,
         MatLabel,
-        MatSuffix
+        MatSuffix,
+      MatCardSubtitle
     ],
   templateUrl: './subscription.component.html',
   styleUrl: './subscription.component.css'

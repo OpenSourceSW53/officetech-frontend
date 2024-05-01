@@ -39,9 +39,15 @@ mat-card-header {
 }
 
 mat-card-title {
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   font-weight: 400;
+  font-family: "Lexend Deca", sans-serif;
+}
 
+mat-card-subtitle {
+  font-size: 1.8rem;
+  font-family: "Lexend Deca", sans-serif;
+  margin-top: 1rem;
 }
 
 .subscription-card {
@@ -117,6 +123,7 @@ a {
   border-radius: 30px;
   transition: background-color 0.3s ease;
   align-self: center;
+  user-select: none;
 }
 
 .button:hover {
