@@ -1,69 +1,64 @@
-.card {
-  width: 300px;
-  margin: 100px auto;
+.op {
+  display: flex;
+  justify-content: space-evenly; /* Asegura que las tarjetas estén espaciadas uniformemente */
+  align-items: flex-start; /* Alinea las tarjetas en la parte superior */
+  flex-wrap: wrap; /* Permite que las tarjetas se ajusten en pantallas más pequeñas */
+}
+
+.card, .card2 {
+  width: 45%; /* Establece un ancho relativo para ambas tarjetas para una mayor responsividad */
+  margin: 50px 20px; /* Ajusta el margen para una mejor visualización */
   border-radius: 15px;
   background-color: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
-}
-
-.op {
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Asegura que el contenido de la tarjeta se alinee verticalmente */
 }
 
-.profile-image {
-  width: 100%;
-  height: 150px;
-  overflow: hidden;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-
+/* Revisa el estilo de las imágenes para asegurar que se ajusten bien en su contenedor */
 .profile-image img {
-  width: 100%;
-  height: auto;
   border-radius: 50%;
+  height: 100%; /* Asegura que la imagen llene el contenedor */
+  object-fit: cover; /* Ajusta la imagen de forma adecuada sin distorsionar */
 }
 
-.card-content {
-  padding: 20px;
+/* Botones dentro de las tarjetas con ajustes */
+button, .btn-edit, .btn-cancel {
+  width: calc(100% - 20px); /* Ajusta el ancho considerando el padding */
+  margin: 10px; /* Añade margen alrededor de los botones */
 }
 
-.card-body .form-group {
-  margin-bottom: 15px;
+/* Estilos de Angular Material revisados para ajustarse al diseño */
+mat-card {
+  margin: 50px 20px; /* Consistencia en el margen */
+  width: 45%; /* Ancho igual al de las tarjetas personalizadas */
 }
 
-.btn-group {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+/* Para que los botones de Angular Material no se extiendan demasiado */
+mat-card-actions button {
+  max-width: 200px;
+  margin: 10px auto; /* Centra los botones dentro de la tarjeta */
 }
 
-.btn {
-  margin: 10px;
+/* Ajustes adicionales para el manejo de campos de formulario y etiquetas */
+.form-group label {
+  display: block;
+  color: #333;
+  margin: 5px 0;
 }
 
-.btn-edit {
-  border-radius: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 16px;
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.btn-edit:hover {
-  background-color: #0056b3;
-}
-
-.btn-cancel {
-  border-radius: 20px;
-  background-color: transparent;
-  color: #007bff;
-  border: 2px solid #007bff;
-  padding: 8px 16px;
-}
-
-.btn-cancel:hover {
-  background-color: rgba(0, 123, 255, 0.1);
+/* Asegúrate de revisar los media queries para responsividad en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .card, .card2, mat-card {
+    width: 90%; /* Aumenta el ancho en pantallas pequeñas */
+    margin: 20px auto; /* Reduce el margen para mejor ajuste */
+  }
 }
