@@ -38,8 +38,28 @@ export class PanelComponent implements OnInit {
   getItems() {
     this.panelService.getItems().subscribe(
       r=>{
-        //console.log(r[this.id_user]);
-        this.data = r[this.id_user];
+        console.log('r', r)
+        const result: any = {};
+        for(let i of r) {
+          if(!result[i.publisher_id]) {
+            result[i.publisher_id] = [{
+              first: i.first,
+              second : i.second,
+              third: i.third,
+              fourth: i.fourth
+            }]
+          }else {
+            result[i.publisher_id].push({
+              first: i.first,
+              second : i.second,
+              third: i.third,
+              fourth: i.fourth
+            })
+
+          }
+        }
+
+        this.data = result[this.id_user];
       },
       e=>{
         console.log(e)
