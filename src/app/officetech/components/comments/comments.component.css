@@ -1,27 +1,27 @@
 .container {
-  max-width: 90%;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .content-wrapper {
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 }
 
 h1 {
-  color: black;
-  font-size: 48px;
-  text-align: left;
+  font-size: 2.3rem;
   margin-bottom: 20px;
+  font-family: "Lexend Deca", sans-serif;
+  padding: 2rem;
 }
 
 .tech-card {
   background-color: white;
   border-radius: 10px;
   padding: 20px;
-  max-width: 25%;
+  max-width: 350px;
   margin-left: 50px;
   margin-right: 80px;
 }
@@ -82,8 +82,6 @@ mat-card-content {
 .comment-section {
   display: flex;
   flex-direction: column;
-  width: 25%;
-  margin-right: 750px;
 }
 
 .rating {
@@ -96,4 +94,15 @@ mat-card-content {
   cursor: pointer;
   font-size: 14px;
   color: black;
+}
+
+@media screen and (max-width: 820px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .tech-card {
+    margin: 0;
+  }
 }

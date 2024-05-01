@@ -29,10 +29,10 @@ export class ResponsesComponent implements OnInit{
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe(async params => {
-      const postId = +params['id'];  // Asegúrate de que 'id' sea el nombre correcto del parámetro.
+    this.route.params.subscribe(params => {
+      const postId = params['id'];
       if (!isNaN(postId)) {
-        await this.loadPost(postId);
+        this.loadPost(postId);
       }
     });
   }
@@ -42,7 +42,9 @@ export class ResponsesComponent implements OnInit{
     try {
       this.forumService.getForumPosts().subscribe(
         (result) => {
-          this.post = result.find((p:any) => p.id === postId);
+          console.log('result', result)
+          this.post = result.find((p:any) => p.id_user == postId).forum_posts[0];
+          console.log('post', this.post)
         }
       )
     } catch (error) {

@@ -92,7 +92,8 @@ export class ForumComponent implements OnInit {
   }
 
   getResponses(id: number) {
-    this.router.navigate(['forum','responses', id]);
+    console.log('id', this.id_user)
+    this.router.navigate(['forum','responses', this.id_user]);
   }
 
   newAnswer(id: number) {

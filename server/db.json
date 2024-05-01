@@ -3,15 +3,15 @@
     {
       "id": 1,
       "type_user": "company",
-      "name": "Yesi Hotman",
-      "email": "yesipinkmen@hotmans.com",
+      "name": "Tech Solutions Inc.",
+      "email": "techsolutions@hotmail.com",
       "password": "yesi123"
     },
     {
       "id": 2,
-      "name": "Yesi Hotman Technician",
+      "name": "Jesse Technician",
       "type_user": "technician",
-      "email": "yesitecnico@hotmans.com",
+      "email": "tecnico@hotmail.com",
       "password": "yesi321"
     },
     {
@@ -38,21 +38,48 @@
           "name": "Jesse Esteban",
           "title": "Networking Issue",
           "description": "Hi everyone, we're experiencing some connectivity issues with our office network. Despite troubleshooting on our end, we're still unable to resolve the issue. Any suggestions on what might be causing this and how we can fix it?",
-          "answers": []
+          "answers": [
+            {
+              "name": "Arian Rodriguez",
+              "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, make sure that the network settings are configured correctly on all devices."
+            },
+            {
+              "name": "Jesse Esteban",
+              "description": "Yes, we've checked the network cables and switches, and everything seems to be in order. We've also verified the network settings on all devices, but we're still experiencing connectivity issues. Any other suggestions?"
+            },
+            {
+              "name": "Arian Rodriguez",
+              "description": "In that case, you may want to check the network configuration on your router or access point. Make sure that the IP address, subnet mask, and default gateway are configured correctly. You may also want to check for any firmware updates for your router or access point."
+            }
+          ]
         },
         {
           "image": "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/nekolas-profile.png",
           "name": "Jesse Esteban",
           "title": "Networking Issue",
           "description": "Hi everyone, we're experiencing some connectivity issues with our office network. Despite troubleshooting on our end, we're still unable to resolve the issue. Any suggestions on what might be causing this and how we can fix it?",
-          "answers": []
+          "answers": [
+            {
+              "name": "Arian Rodriguez",
+              "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, make sure that the network settings are configured correctly on all devices."
+            }
+          ]
         },
         {
           "image": "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/nekolas-profile.png",
           "name": "Jesse Esteban",
           "title": "Networking Issue",
           "description": "Hi everyone, we're experiencing some connectivity issues with our office network. Despite troubleshooting on our end, we're still unable to resolve the issue. Any suggestions on what might be causing this and how we can fix it?",
-          "answers": []
+          "answers": [
+            {
+              "name": "Arian Rodriguez",
+              "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, make sure that the network settings are configured correctly on all devices."
+            },
+            {
+              "name": "Jesse Esteban",
+              "description": "Yes, we've checked the network cables and switches, and everything seems to be in order. We've also verified the network settings on all devices, but we're still experiencing connectivity issues. Any other suggestions?"
+            }
+          ]
         }
       ]
     },
@@ -64,21 +91,60 @@
           "name": "Arian Rodriguez",
           "title": "Networking Issue",
           "description": "Hi everyone, we're experiencing some connectivity issues with our office network. Despite troubleshooting on our end, we're still unable to resolve the issue. Any suggestions on what might be causing this and how we can fix it?",
-          "answers": []
+          "answers": [
+            {
+              "name": "Arian Rodriguez",
+              "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, make sure that the network settings are configured correctly on all devices."
+            },
+            {
+              "name": "Jesse Esteban",
+              "description": "Yes, we've checked the network cables and switches, and everything seems to be in order. We've also verified the network settings on all devices, but we're still experiencing connectivity issues. Any other suggestions?"
+            },
+            {
+              "name": "Arian Rodriguez",
+              "description": "In that case, you may want to check the network configuration on your router or access point. Make sure that the IP address, subnet mask, and default gateway are configured correctly. You may also want to check for any firmware updates for your router or access point."
+            }
+          ]
         },
         {
           "image": "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/arigeimpleis.jpg",
           "name": "Arian Rodriguez",
           "title": "Networking Issue",
           "description": "Hi everyone, we're experiencing some connectivity issues with our office network. Despite troubleshooting on our end, we're still unable to resolve the issue. Any suggestions on what might be causing this and how we can fix it?",
-          "answers": []
+          "answers": [
+            {
+              "name": "Arian Rodriguez",
+              "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, make sure that the network settings are configured correctly on all devices."
+            },
+            {
+              "name": "Jesse Esteban",
+              "description": "Yes, we've checked the network cables and switches, and everything seems to be in order. We've also verified the network settings on all devices, but we're still experiencing connectivity issues. Any other suggestions?"
+            },
+            {
+              "name": "Arian Rodriguez",
+              "description": "In that case, you may want to check the network configuration on your router or access point. Make sure that the IP address, subnet mask, and default gateway are configured correctly. You may also want to check for any firmware updates for your router or access point."
+            }
+          ]
         },
         {
           "image": "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/arigeimpleis.jpg",
           "name": "Arian Rodriguez",
           "title": "Networking Issue",
           "description": "Hi everyone, we're experiencing some connectivity issues with our office network. Despite troubleshooting on our end, we're still unable to resolve the issue. Any suggestions on what might be causing this and how we can fix it?",
-          "answers": []
+          "answers": [
+            {
+              "name": "Arian Rodriguez",
+              "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, make sure that the network settings are configured correctly on all devices."
+            },
+            {
+              "name": "Jesse Esteban",
+              "description": "Yes, we've checked the network cables and switches, and everything seems to be in order. We've also verified the network settings on all devices, but we're still experiencing connectivity issues. Any other suggestions?"
+            },
+            {
+              "name": "Arian Rodriguez",
+              "description": "In that case, you may want to check the network configuration on your router or access point. Make sure that the IP address, subnet mask, and default gateway are configured correctly. You may also want to check for any firmware updates for your router or access point."
+            }
+          ]
         }
       ]
     }
