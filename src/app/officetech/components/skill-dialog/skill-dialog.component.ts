@@ -1,7 +1,14 @@
-import { Component } from '@angular/core';
-import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
+import {Component} from '@angular/core';
+import { MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
-import {MatDialogClose, MatDialogRef} from "@angular/material/dialog";
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContainer,
+  MatDialogContent, MatDialogModule,
+  MatDialogRef
+} from "@angular/material/dialog";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-skill-dialog',
@@ -9,8 +16,12 @@ import {MatDialogClose, MatDialogRef} from "@angular/material/dialog";
   imports: [
     MatFormFieldModule,
     FormsModule,
-
-    MatDialogClose
+    MatDialogModule,
+    MatDialogClose,
+    MatDialogContainer,
+    MatDialogContent,
+    MatDialogActions,
+    MatButton,
   ],
   templateUrl: './skill-dialog.component.html',
   styleUrl: './skill-dialog.component.css'
@@ -23,4 +34,6 @@ export class SkillDialogComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+
 }

@@ -47,11 +47,12 @@ export class EditProfileComponent implements OnInit{
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(SkillDialogComponent, {
-      width: '250px'
+      width: '20%',
+      height: '40%'
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        // Aquí puedes añadir la nueva habilidad a tu lista de habilidades
+
         this.skills.push(result);
       }
     });
