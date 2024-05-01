@@ -58,7 +58,7 @@ export const routes: Routes = [
     component: CommentsComponent
   },
   {
-    path: "services/new_tech_requirement",
+    path: "services/:type_user/:id/new_tech_requirement",
     component: ServiceRequestComponent
   },
   {
