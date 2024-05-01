@@ -77,9 +77,6 @@ export class SignUpComponent {
         return 0;
       }
     )
-
-
-    //this.router.navigate(["sign-up", "subscription"]);
   }
 
   goToSignIn() {

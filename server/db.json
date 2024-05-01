@@ -13,97 +13,6 @@
       "type_user": "technician",
       "email": "yesitecnico@hotmans.com",
       "password": "yesi321"
-    },
-    {
-      "id": 3,
-      "name": " ",
-      "email": "",
-      "password": "",
-      "type_user": ""
-    },
-    {
-      "id": 4,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "company"
-    },
-    {
-      "id": 5,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "company"
-    },
-    {
-      "id": 6,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "company"
-    },
-    {
-      "id": 7,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "company"
-    },
-    {
-      "id": 8,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "technician"
-    },
-    {
-      "id": 9,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "technician"
-    },
-    {
-      "id": 10,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "technician"
-    },
-    {
-      "id": 11,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "technician"
-    },
-    {
-      "id": 12,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "technician"
-    },
-    {
-      "id": 13,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "technician"
-    },
-    {
-      "id": 14,
-      "name": "asd asd",
-      "email": "asd",
-      "password": "asd",
-      "type_user": "technician"
-    },
-    {
-      "id": 15,
-      "name": " ",
-      "email": "",
-      "password": "",
-      "type_user": ""
     }
   ],
   "posts": [
@@ -155,30 +64,58 @@
       ]
     }
   ],
-  "services": [
-    {
-      "first": "Cloud Storage Solutions: Facilitate remote access to important files and data.",
-      "second": "James Gillighan, Software Engineer",
-      "third": "In progress",
-      "fourth": "4/5/2024"
-    },
-    {
-      "first": "Project Management Tools: Organize our internal tasks and ensure timely project delivery to our clients.",
-      "second": "Carlos Martinez, Project Lead",
-      "third": "Active",
-      "fourth": "14/2/2024"
-    },
-    {
-      "first": "Customer Relationship Management (CRM) Software: Manage customer interactions and data throughout the customer lifecycle.",
-      "second": "Samantha Johnson, Customer Service",
-      "third": "In progress",
-      "fourth": "9/1/2023"
-    },
-    {
-      "first": "Data Analytics Tools: Analyze and visualize data to make informed business decisions.",
-      "second": "Liam O'Connell, Data Analyst",
-      "third": "Active",
-      "fourth": "4/5/2024"
-    }
-  ]
+  "services": {
+    "1": [
+      {
+        "first": "Cloud Storage Solutions: Facilitate remote access to important files and data.",
+        "second": "James Gillighan, Software Engineer",
+        "third": "In progress",
+        "fourth": "4/5/2024"
+      },
+      {
+        "first": "Project Management Tools: Organize our internal tasks and ensure timely project delivery to our clients.",
+        "second": "Carlos Martinez, Project Lead",
+        "third": "Active",
+        "fourth": "14/2/2024"
+      },
+      {
+        "first": "Customer Relationship Management (CRM) Software: Manage customer interactions and data throughout the customer lifecycle.",
+        "second": "Samantha Johnson, Customer Service",
+        "third": "In progress",
+        "fourth": "9/1/2023"
+      },
+      {
+        "first": "Data Analytics Tools: Analyze and visualize data to make informed business decisions.",
+        "second": "Liam O'Connell, Data Analyst",
+        "third": "Active",
+        "fourth": "4/5/2024"
+      }
+    ],
+    "2": [
+      {
+        "first": "Cloud Storage Solutions: Facilitate remote access to important files and data.",
+        "second": "Marco Gonzales, Bright Logistics",
+        "third": "In progress",
+        "fourth": "4/5/2024"
+      },
+      {
+        "first": "Project Management Tools: Organize our internal tasks and ensure timely project delivery to our clients.",
+        "second": "Carlos Martinez, Oakwood Manufacturing",
+        "third": "Active",
+        "fourth": "14/2/2024"
+      },
+      {
+        "first": "Customer Relationship Management (CRM) Software: Manage customer interactions and data throughout the customer lifecycle.",
+        "second": "Samantha Johnson, Tech Solutions",
+        "third": "Completed",
+        "fourth": "9/1/2023"
+      },
+      {
+        "first": "Data Analytics Tools: Analyze and visualize data to make informed business decisions.",
+        "second": "Liam O'Connell, Analytics Inc.",
+        "third": "Rejected",
+        "fourth": "4/5/2024"
+      }
+    ]
+  }
 }

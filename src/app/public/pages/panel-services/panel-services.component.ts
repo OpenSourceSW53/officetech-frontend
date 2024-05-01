@@ -1,8 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {NgForOf, Location} from "@angular/common";
 import {CardComponent} from "../../../officetech/components/card/card.component";
 import {CardHeaderComponent} from "../../../officetech/components/card-header/card-header.component";
 import {PanelItemsService} from "../../../officetech/services/panel/panel-items.service";
+import {filter} from "rxjs/operators";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'app-panel-services',
@@ -16,11 +18,17 @@ import {PanelItemsService} from "../../../officetech/services/panel/panel-items.
   styleUrl: './panel-services.component.css'
 })
 export class PanelComponent implements OnInit {
-  @Input() header_titles: string[] = ["Service", "Technician", "Status", "Due"]
+  header_titles: string[] = []
+  title: string = ""
   data: any[] = []
+  id_user: number = 0
 
-  constructor(private panelService: PanelItemsService) {
-
+  constructor(private router: Router, private route: ActivatedRoute, private panelService: PanelItemsService, private location: Location) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.getTypeUser();
+    });
   }
 
   ngOnInit() {
@@ -30,11 +38,32 @@ export class PanelComponent implements OnInit {
   getItems() {
     this.panelService.getItems().subscribe(
       r=>{
-        this.data = r
+        //console.log(r[this.id_user]);
+        this.data = r[this.id_user];
       },
       e=>{
         console.log(e)
       }
     )
+  }
+
+  getTypeUser() {
+    if (this.location.path().includes('technician')) {
+      this.header_titles = ["Tech Service", "Company", "Status", "Due"];
+      this.title = "Your current projects"
+    }else if(this.location.path().includes('company')){
+      console.log('company')
+      this.header_titles = ["Service", "Technician", "Status", "Due"];
+      this.title = "Your current tech services"
+    }
+
+    try {
+      this.route.params.subscribe(params => {
+        this.id_user = params['id']
+      });
+    } catch(e) {
+      this.id_user = 1
+    }
+
   }
 }
