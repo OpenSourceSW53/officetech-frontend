@@ -82,6 +82,14 @@ export const routes: Routes = [
     component: ForumComponent
   },
   {
+    path: "services/:type_user/:id",
+    component: ServicesCompanyComponent
+  },
+  {
+    path: "profile/:type_user/:id",
+    component: ProfileComponent
+  },
+  {
     path: "services/:type_user/:id/new_comment",
     component: CommentsComponent
   }

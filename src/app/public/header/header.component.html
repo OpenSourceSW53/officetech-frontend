@@ -5,15 +5,62 @@
   </div>
 
   <div class="toolbar__content-list" id="toolbar__content-list">
-    <ul>
+    <ul *ngIf="start_home">
       <li
         class="toolbar__list-item"
         role="listitem"
         aria-describedby="page"
-        *ngFor="let title of navbar_list"
-        (click)="navigateTo('/' + title.toLowerCase())"
-        [style.font-weight]="isActualRoute(title.toLowerCase())? 'bold' : '400'">{{title}}</li>
+        (click)="router.navigate(routes_navbar[0])"
+      >
+        Home
+      </li>
+      <li
+        class="toolbar__list-item"
+        role="listitem"
+        aria-describedby="page"
+        (click)="router.navigate(routes_navbar[1])">
+        Sign In
+      </li>
     </ul>
+
+    <ul *ngIf="!start_home">
+      <li
+        class="toolbar__list-item"
+        role="listitem"
+        aria-describedby="page"
+        (click)="router.navigate(routes_navbar[0])">
+        Home
+      </li>
+      <li
+        class="toolbar__list-item"
+        role="listitem"
+        aria-describedby="page"
+        (click)="router.navigate(routes_navbar[1])">
+        Forum
+      </li>
+      <li
+        class="toolbar__list-item"
+        role="listitem"
+        aria-describedby="page"
+        (click)="router.navigate(routes_navbar[2])">
+        Services
+      </li>
+      <li
+        class="toolbar__list-item"
+        role="listitem"
+        aria-describedby="page"
+        (click)="router.navigate(routes_navbar[3])">
+        Profile
+      </li>
+      <li
+        class="toolbar__list-item"
+        role="listitem"
+        aria-describedby="page"
+        (click)="router.navigate(routes_navbar[4])">
+        Sign Out
+      </li>
+    </ul>
+
   </div>
 
   <div class="toolbar__content-toggle" (click)="toggleNavbar()">
