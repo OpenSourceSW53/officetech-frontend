@@ -14,4 +14,8 @@ export class ForumService {
   getForumPosts() {
     return this.http.get<any>(`${this.baseUrl}/api/v1/posts`)
   }
+
+  createForumPost(id: number, post: any) {
+    return this.http.post<any>(`${this.baseUrl}/api/v1/posts?id_user=${id}`, post)
+  }
 }

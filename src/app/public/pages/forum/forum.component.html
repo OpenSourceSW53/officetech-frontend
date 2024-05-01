@@ -1,7 +1,32 @@
 <div class="forum__container">
+
+  <div class="popup__new_forum" *ngIf="showNewForm">
+    <div class="popup__new_forum__content">
+      <div class="popup__new_forum__content-close" (click)="showNewForum()">
+        <i class="fa-solid fa-times"></i>
+      </div>
+
+      <div class="popup__new-forum-box">
+
+        <div class="popup__new_forum__content-title">
+          <h1>Create a new forum</h1>
+        </div>
+        <div class="popup__new_forum__content-input">
+          <input type="text" placeholder="Title" [(ngModel)]="dataNewForum['title']">
+          <textarea placeholder="Description" [(ngModel)]="dataNewForum['description']"></textarea>
+        </div>
+        <div class="popup__new_forum__content-button" (click)="createNewForum()">
+          <p>Create</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
   <div class="forum__header" role="heading">
     <h1 class="forum__header-title" aria-label="title">Forum</h1>
-    <div class="forum__header-new" role="button" *ngIf="type_user">
+    <div class="forum__header-new" role="button" *ngIf="type_user" (click)="showNewForum()">
       <p>Create a new forum</p>
       <i class="fa-solid fa-plus"></i>
     </div>
