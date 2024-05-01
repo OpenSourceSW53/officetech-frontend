@@ -5,7 +5,6 @@
   flex-direction: column;
   justify-content: flex-end;
   flex-wrap: wrap;
-
 }
 .content-container {
   width: 50%;
@@ -28,12 +27,12 @@ p {
 }
 .title {
   font-size: 5vw;
-  font-weight: bold;
+  font-weight: 670;
   color: #2C3F84;
-  padding: 10px 0;
+  padding: 0 0 10px 0;
   line-height: 1.05;
   font-family: "Lexend Deca", sans-serif;
-
+  letter-spacing: -1px;
 }
 
 a {
@@ -108,7 +107,6 @@ img {
   }
   .button {
     font-size: 1.5em;
-
   }
 }
 @media screen and (max-width: 600px) {
