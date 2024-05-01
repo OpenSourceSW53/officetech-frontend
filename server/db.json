@@ -78,58 +78,70 @@
       ]
     }
   ],
-  "services": {
-    "1": [
-      {
-        "first": "Cloud Storage Solutions: Facilitate remote access to important files and data.",
-        "second": "James Gillighan, Software Engineer",
-        "third": "In progress",
-        "fourth": "4/5/2024"
-      },
-      {
-        "first": "Project Management Tools: Organize our internal tasks and ensure timely project delivery to our clients.",
-        "second": "Carlos Martinez, Project Lead",
-        "third": "Active",
-        "fourth": "14/2/2024"
-      },
-      {
-        "first": "Customer Relationship Management (CRM) Software: Manage customer interactions and data throughout the customer lifecycle.",
-        "second": "Samantha Johnson, Customer Service",
-        "third": "In progress",
-        "fourth": "9/1/2023"
-      },
-      {
-        "first": "Data Analytics Tools: Analyze and visualize data to make informed business decisions.",
-        "second": "Liam O'Connell, Data Analyst",
-        "third": "Active",
-        "fourth": "4/5/2024"
-      }
-    ],
-    "2": [
-      {
-        "first": "Cloud Storage Solutions: Facilitate remote access to important files and data.",
-        "second": "Marco Gonzales, Bright Logistics",
-        "third": "In progress",
-        "fourth": "4/5/2024"
-      },
-      {
-        "first": "Project Management Tools: Organize our internal tasks and ensure timely project delivery to our clients.",
-        "second": "Carlos Martinez, Oakwood Manufacturing",
-        "third": "Active",
-        "fourth": "14/2/2024"
-      },
-      {
-        "first": "Customer Relationship Management (CRM) Software: Manage customer interactions and data throughout the customer lifecycle.",
-        "second": "Samantha Johnson, Tech Solutions",
-        "third": "Completed",
-        "fourth": "9/1/2023"
-      },
-      {
-        "first": "Data Analytics Tools: Analyze and visualize data to make informed business decisions.",
-        "second": "Liam O'Connell, Analytics Inc.",
-        "third": "Rejected",
-        "fourth": "4/5/2024"
-      }
-    ]
-  }
+  "services": [
+    {
+      "id": 1,
+      "first": "Cloud Storage Solutions: Facilitate remote access to important files and data.",
+      "second": "James Gillighan, Software Engineer",
+      "third": "In progress",
+      "fourth": "04/05/2024",
+      "publisher_id": 2
+    },
+    {
+      "id": 2,
+      "first": "Project Management Tools: Organize our internal tasks and ensure timely project delivery to our clients.",
+      "second": "Carlos Martinez, Project Lead",
+      "third": "Active",
+      "fourth": "14/02/2024",
+      "publisher_id": 1
+    },
+    {
+      "id": 3,
+      "first": "Customer Relationship Management (CRM) Software: Manage customer interactions and data throughout the customer lifecycle.",
+      "second": "Samantha Johnson, Customer Service",
+      "third": "In progress",
+      "fourth": "09/01/2023",
+      "publisher_id": 3
+    },
+    {
+      "id": 4,
+      "first": "Data Analytics Tools: Analyze and visualize data to make informed business decisions.",
+      "second": "Liam O'Connell, Data Analyst",
+      "third": "Active",
+      "fourth": "04/05/2024",
+      "publisher_id": 2
+    },
+    {
+      "id": 5,
+      "first": "Cloud Storage Solutions: Facilitate remote access to important files and data.",
+      "second": "Marco Gonzales, Bright Logistics",
+      "third": "In progress",
+      "fourth": "04/05/2024",
+      "publisher_id": 1
+    },
+    {
+      "id": 6,
+      "first": "Project Management Tools: Organize our internal tasks and ensure timely project delivery to our clients.",
+      "second": "Carlos Martinez, Oakwood Manufacturing",
+      "third": "Active",
+      "fourth": "14/02/2024",
+      "publisher_id": 3
+    },
+    {
+      "id": 7,
+      "first": "Customer Relationship Management (CRM) Software: Manage customer interactions and data throughout the customer lifecycle.",
+      "second": "Samantha Johnson, Tech Solutions",
+      "third": "Completed",
+      "fourth": "09/01/2023",
+      "publisher_id": 2
+    },
+    {
+      "id": 8,
+      "first": "Data Analytics Tools: Analyze and visualize data to make informed business decisions.",
+      "second": "Liam O'Connell, Analytics Inc.",
+      "third": "Rejected",
+      "fourth": "04/05/2024",
+      "publisher_id": 1
+    }
+  ]
 }

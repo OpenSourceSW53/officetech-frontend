@@ -47,10 +47,10 @@ export class HeaderComponent {
     else{
       this.start_home = false;
       //this.navbar_list = ["Home", "Forum", "Services", "Profile", "Sign Out"];
-      console.log(this.router.url);
+      //console.log(this.router.url);
       this.type_user = this.router.url.split('/')[2];
       this.id = this.router.url.split('/')[3];
-      console.log(this.type_user);
+      //console.log(this.type_user);
 
       this.routes_navbar = [["/home", this.type_user, this.id], ["/forum", this.type_user, this.id], ["/services", this.type_user, this.id], ["/profile", this.type_user, this.id], ["/sign-in"]];
     }
