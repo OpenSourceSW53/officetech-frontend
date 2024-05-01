@@ -8,10 +8,102 @@
       "password": "yesi123"
     },
     {
-      "id": 1,
+      "id": 2,
+      "name": "Yesi Hotman Technician",
       "type_user": "technician",
       "email": "yesitecnico@hotmans.com",
       "password": "yesi321"
+    },
+    {
+      "id": 3,
+      "name": " ",
+      "email": "",
+      "password": "",
+      "type_user": ""
+    },
+    {
+      "id": 4,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "company"
+    },
+    {
+      "id": 5,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "company"
+    },
+    {
+      "id": 6,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "company"
+    },
+    {
+      "id": 7,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "company"
+    },
+    {
+      "id": 8,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "technician"
+    },
+    {
+      "id": 9,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "technician"
+    },
+    {
+      "id": 10,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "technician"
+    },
+    {
+      "id": 11,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "technician"
+    },
+    {
+      "id": 12,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "technician"
+    },
+    {
+      "id": 13,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "technician"
+    },
+    {
+      "id": 14,
+      "name": "asd asd",
+      "email": "asd",
+      "password": "asd",
+      "type_user": "technician"
+    },
+    {
+      "id": 15,
+      "name": " ",
+      "email": "",
+      "password": "",
+      "type_user": ""
     }
   ],
   "posts": [
@@ -23,15 +115,15 @@
       "description": "Hi everyone, we\"re experiencing some connectivity issues with our office network. Despite troubleshooting on our end, we\"re still unable to resolve the issue. Any suggestions on what might be causing this and how we can fix it?",
       "answers": [
         {
-          "name":  "Yesi Hotman",
+          "name": "Yesi Hotman",
           "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, ensure that the network drivers on your devices are up to date."
         },
         {
-          "name":  "Yesi Hotman",
+          "name": "Yesi Hotman",
           "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, ensure that the network drivers on your devices are up to date."
         },
         {
-          "name":  "Yesi Hotman",
+          "name": "Yesi Hotman",
           "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, ensure that the network drivers on your devices are up to date."
         }
       ]
@@ -44,7 +136,7 @@
       "description": "Hello tech community, we recently upgraded our operating system, and now we\"re encountering compatibility issues with some of our essential software applications. Has anyone else experienced similar issues, and if so, how did you address them?",
       "answers": [
         {
-          "name":  "Yesi Hotman",
+          "name": "Yesi Hotman",
           "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, ensure that the network drivers on your devices are up to date."
         }
       ]
@@ -57,7 +149,7 @@
       "description": "Hi everyone, we\"re experiencing some connectivity issues with our office network. Despite troubleshooting on our end, we\"re still unable to resolve the issue. Any suggestions on what might be causing this and how we can fix it?",
       "answers": [
         {
-          "name":  "Yesi Hotman",
+          "name": "Yesi Hotman",
           "description": "Have you checked the network cables and switches? Sometimes, a faulty cable or switch can cause connectivity issues. Also, ensure that the network drivers on your devices are up to date."
         }
       ]
@@ -75,8 +167,7 @@
       "second": "Carlos Martinez, Project Lead",
       "third": "Active",
       "fourth": "14/2/2024"
-    }
-  ,
+    },
     {
       "first": "Customer Relationship Management (CRM) Software: Manage customer interactions and data throughout the customer lifecycle.",
       "second": "Samantha Johnson, Customer Service",

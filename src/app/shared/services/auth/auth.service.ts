@@ -27,4 +27,12 @@ export class AuthService {
       return null;
     }
   }
+
+  getUsers() {
+    return this.http.get<any>(`${this.baseUrl}/api/v1/users`)
+  }
+
+  createUser(user: any) {
+    return this.http.post<any>(`${this.baseUrl}/api/v1/users`, user)
+  }
 }

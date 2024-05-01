@@ -42,9 +42,7 @@ export class SignInComponent {
   }
 
   async signIn() {
-    console.log(this.email, this.pass);
     const response: any = await this.authService.signIn(this.email, this.pass);
-    console.log('response: ', response)
 
     if (response) {
       const user = new UserEntity(

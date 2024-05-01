@@ -13,40 +13,40 @@
     <div class="user-name-container">
       <mat-form-field class="input-field">
         <mat-label class="field-title">First Name</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="first_name">
       </mat-form-field>
 
       <mat-form-field class="input-field">
         <mat-label class="field-title">Last Name</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="last_name">
       </mat-form-field>
     </div>
 
 
     <mat-form-field class="input-field">
       <mat-label class="field-title">Email</mat-label>
-      <input matInput>
+      <input matInput [(ngModel)]="email">
     </mat-form-field>
 
     <mat-form-field class="input-field">
       <mat-label class="field-title">Password</mat-label>
-      <input matInput type="password">
+      <input matInput type="password" [(ngModel)]="password">
     </mat-form-field>
 
     <mat-form-field class="input-field">
       <mat-label class="field-title">Confirm password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
+      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password_confirm" (ngModelChange)="detectPassword($event)">
       <button mat-icon-button matSuffix (click)="hide = !hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> <!--Verificar q el input en ambos sean iguales-->
       </button>
     </mat-form-field>
 
     <mat-radio-group aria-label="Select an option">
-      <mat-radio-button value="1">Client</mat-radio-button>
-      <mat-radio-button value="2">Technician</mat-radio-button> <!-- colocar para que sean obligatorios-->
+      <mat-radio-button value="1" (click)="changeTypeUser('company')">Client</mat-radio-button>
+      <mat-radio-button value="2" (click)="changeTypeUser('technician')">Technician</mat-radio-button> <!-- colocar para que sean obligatorios-->
     </mat-radio-group>
 
-    <a class="button" (click)="goToSubscription()" routerLink="sign-up/subscription">SIGN UP</a>
+    <a class="button" (click)="goToSubscription()">SIGN UP</a>
 
   </mat-card>
   <h3 class="card-footer">Already have an account? <a class="login-link" (click)="goToSignIn()">Log in</a></h3>
