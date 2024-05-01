@@ -1,22 +1,36 @@
-<mat-card *ngIf="userData">
-  <div class="content-container">
+<div class="container">
+  <mat-card *ngIf="userData">
+    <div class="content-container">
+      <div class="logo-container">
+        <h2 class="logo-title" aria-label="title" >Perfil</h2>
+        <img src="./assets/images/logo-officetech.png" alt="OfficeTech" role="img" class="logo-officetech" height="68px">
+      </div>
 
-    <mat-card role="profile-card">
-      <mat-card-header>
-        <mat-card-title class="card-title">{{ userData.name }}</mat-card-title>
-      </mat-card-header>
+      <mat-card class="signin-card">
+        <mat-card-header>
+          <mat-card-title class="card-title">{{ userData.name }}</mat-card-title>
+        </mat-card-header>
 
-      <mat-card-content>
-        <p><strong>Nombre:</strong> {{ userData.name }}</p>
-        <p><strong>Correo:</strong> {{ userData.email }}</p>
-        <!-- Agrega aquí más detalles del perfil del usuario si los necesitas -->
-      </mat-card-content>
+        <mat-card-content class="input-field">
+          <p><strong>Nombre:</strong> {{ userData.name }}</p>
+          <p><strong>Correo:</strong> {{ userData.email }}</p>
+          <p><strong>Tipo de Usuario:</strong> {{ userData.type_user }}</p>
+          <p><strong>Contraseña:</strong> {{ userData.password }}</p>
+        </mat-card-content>
 
-      <mat-card-actions>
-        <button mat-button color="primary" (click)="editProfile()">Editar Perfil</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
 
-</mat-card>
+        <a class="button" (click)="editProfile()">Editar perfil</a>
+
+      </mat-card>
+
+    </div>
+  </mat-card>
+</div>
+
+<div class="background-circles">
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+  <div class="circle circle4"></div>
+</div>
 
