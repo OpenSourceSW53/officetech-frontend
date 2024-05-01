@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
-import {UserService} from "../../services/user/user.service.entity";
+import {UserService} from "../../services/user/user.service";
 import {UserEntity} from "../../models/user-entity";
 import {ActivatedRoute} from "@angular/router";
 import {NgIf} from "@angular/common";
@@ -33,8 +33,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe( params => {
       console.log(params);
-      const id = +params['id'];
+      const id = 2;
       console.log('ID de usuario:', id);
+      console.log(typeof id);
+
       if (!isNaN(id)) {
          this.loadUser(id);
       }else{
