@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import {RequestServiceService} from "../../services/request-service/request-service.service";
 import {DatePipe, NgForOf} from "@angular/common";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 interface Service {
   id: number;
@@ -9,6 +10,7 @@ interface Service {
   second: string;
   third: string;
   fourth: number;
+  rating: number;
 }
 
 @Component({
@@ -17,7 +19,8 @@ interface Service {
   standalone: true,
   imports: [
     NgForOf,
-    DatePipe
+    DatePipe,
+    MatProgressBarModule
   ],
   styleUrls: ['./services-rating.component.css']
 })

@@ -13,8 +13,9 @@
         <div class="report-section">
           <p class="report-description">{{ service.first }}</p>
           <p class="report-author">{{ service.second }}</p>
-          <p class="report-date">{{ service.third }}</p>
           <p class="report-date">{{ service.fourth }}</p>
+          <p class="report-date">{{ service.rating }}<mat-progress-bar mode="determinate" value="{{ service.rating *10}}"></mat-progress-bar></p>
+
         </div>
       </div>
     </div>

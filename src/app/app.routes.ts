@@ -15,6 +15,7 @@ import {ResponsesComponent} from "./officetech/components/responses/responses.co
 import {PublishComponent} from "./officetech/components/publish/publish.component";
 import {ServiceRequestComponent} from "./officetech/components/service-request/service-request.component";
 import {EditProfileComponent} from "./officetech/components/edit-profile/edit-profile.component";
+import {ServicesRatingComponent} from "./officetech/components/services-rating/services-rating.component";
 
 export const routes: Routes = [
   {
@@ -82,8 +83,12 @@ export const routes: Routes = [
     component: ForumComponent
   },
   {
-    path: "services/:type_user/:id",
+    path: "services/company/:id",
     component: ServicesCompanyComponent
+  },
+  {
+    path: "services/technician/:id",
+    component:   ServicesRatingComponent
   },
   {
     path: "profile/:type_user/:id",
