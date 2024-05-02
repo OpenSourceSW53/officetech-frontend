@@ -27,6 +27,20 @@
       "email": "company",
       "password": "",
       "type_user": "company"
+    },
+    {
+      "id": 5,
+      "name": "ISI YISI",
+      "email": "ejemplo@example.com",
+      "password": "123",
+      "type_user": "technician"
+    },
+    {
+      "id": 6,
+      "name": " ",
+      "email": "",
+      "password": "",
+      "type_user": ""
     }
   ],
   "posts": [

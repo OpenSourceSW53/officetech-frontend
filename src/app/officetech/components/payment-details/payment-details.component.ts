@@ -48,4 +48,8 @@ export class PaymentDetailsComponent {
   returnSignUp() {
     this.router.navigate(['sign-up']);
   }
+
+  returnStart(){
+    this.router.navigate(['']);
+  }
 }

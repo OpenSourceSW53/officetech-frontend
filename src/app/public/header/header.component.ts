@@ -39,7 +39,7 @@ export class HeaderComponent {
   }
 
   titlesNavbar() {
-    if (this.location.path()=== '/start' || this.location.path()==='/sign-in'|| this.location.path()==='/log-in'|| this.location.path()==='/sign-up') {
+    if (this.location.path()=== '/start' || this.location.path()==='/sign-in'|| this.location.path()==='/log-in'|| this.location.path()==='/sign-up'|| this.location.path()==='/sign-up/subscription'|| this.location.path()==='/sign-up/subscription/payment-details') {
       this.start_home = true;
       //this.navbar_list = ["Start","Sign-in"];
       this.routes_navbar = [["/start"], ["/sign-in"]];
