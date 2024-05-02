@@ -227,6 +227,20 @@
       "third": "Rejected",
       "fourth": "04/05/2024",
       "publisher_id": 1
+    },
+    {
+      "id": 9,
+      "first": "Analytics and Reporting Tools: We need to assess the performance of our business and make informed decisions.",
+      "second": "David Fernandez, Data Analyst.",
+      "third": "30/03/2024",
+      "fourth": "9"
+    },
+    {
+      "id": 10,
+      "first": "Cybersecurity Solutions: We're concerned about protecting our confidential information and preventing potential cyber threats..",
+      "second": "Pablo Gomez, Cybersecurity Expert.",
+      "third": "27/03/2024",
+      "fourth": "10"
     }
   ]
 }

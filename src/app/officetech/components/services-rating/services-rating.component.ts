@@ -1,32 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import {RequestServiceService} from "../../services/request-service/request-service.service";
-import {DatePipe, NgForOf} from "@angular/common";  // Adjust the path accordingly
+import {DatePipe, NgForOf} from "@angular/common";
 
 interface Service {
   id: number;
   first: string;
   second: string;
   third: string;
+  fourth: number;
 }
 
 @Component({
-  selector: 'app-services-ccompany',
-  templateUrl: './services-ccompany.component.html',
+  selector: 'app-services-rating',
+  templateUrl: './services-rating.component.html',
   standalone: true,
   imports: [
     NgForOf,
     DatePipe
   ],
-  styleUrls: ['./services-ccompany.component.css']
+  styleUrls: ['./services-rating.component.css']
 })
-export class ServicesCompanyComponent implements OnInit {
+export class ServicesRatingComponent implements OnInit {
   services: Service[] = [];
   type_user: string;
   id: string;
 
   constructor(
-    private requestService: RequestServiceService,
+    private requestServiceRating: RequestServiceService,
     private router: Router
   ) {
     // Retrieve type_user and id from the URL
@@ -35,15 +36,15 @@ export class ServicesCompanyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadServices();
+    this.loadServicesRating();
   }
 
-  loadServices() {
-    this.requestService.getItems().subscribe({
+  loadServicesRating() {
+    this.requestServiceRating.getItems().subscribe({
       next: (data: Service[]) => {
-        console.log("Datos recibidos:", data);
+        console.log(data);
         this.services = data.filter((service: Service) => service.id === 9 || service.id === 10);
-        console.log("Servicios filtrados:", this.services);
+        console.log(this.services);
       },
       error: (error: any) => {
         console.error('Error fetching services', error);
@@ -51,12 +52,4 @@ export class ServicesCompanyComponent implements OnInit {
     });
   }
 
-  newComment() {
-    this.router.navigate(["services", this.type_user, this.id, "new_comment"]);
-  }
-
-  newRequestService() {
-    // Use dynamic routing based on type_user and id
-    this.router.navigate(["services", this.type_user, this.id, "new_tech_requirement"]);
-  }
 }

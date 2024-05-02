@@ -1,11 +1,10 @@
 <div class="tech-services">
   <h1>Your previous tech requirements: </h1>
-  <button class="btn-rounded-blue" (click)="newRequestService()">Request a new tech service +</button>
   <div class="sub-titles">
     <div class="yellow-box">Tech Service</div>
     <div class="yellow-box">Technician</div>
     <div class="yellow-box">Done by</div>
-    <div class="yellow-box">Give a rating</div>
+    <div class="yellow-box">Your rating</div>
   </div>
 
   <div class="services__history">
@@ -15,9 +14,9 @@
           <p class="report-description">{{ service.first }}</p>
           <p class="report-author">{{ service.second }}</p>
           <p class="report-date">{{ service.third }}</p>
+          <p class="report-date">{{ service.fourth }}</p>
         </div>
       </div>
-      <div class="btn-rounded-blue btn-add-comment" (click)="newComment()">+ Add Comment</div>
     </div>
 
   </div>
