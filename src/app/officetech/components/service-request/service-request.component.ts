@@ -8,7 +8,7 @@ import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {CommonModule} from "@angular/common";
 import {RequestServiceService} from "../../services/request-service/request-service.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 Directive({
   selector: '[appAutoResize]'
@@ -35,10 +35,12 @@ export class ServiceRequestComponent implements OnInit{
   description: string = '';
   date: string = '';
   user_id:string = '';
+  type_user:string="";
   cantidadItems = 0;
   myFormControl = new FormControl('', [Validators.required]);
   private maxHeight = '300px';
-  constructor(private elementRef: ElementRef, private requestServiceService : RequestServiceService, private router: Router) {
+  constructor(private elementRef: ElementRef, private requestServiceService : RequestServiceService, private router: Router,
+              private route: ActivatedRoute) {
     this.myForm = new FormGroup({
       subject: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
@@ -47,6 +49,9 @@ export class ServiceRequestComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.route.params.subscribe(p => {
+      this.type_user = p['type_user'];
+    })
     this.resize();
     this.user_id = this.router.url.split('/')[3];
     console.log(this.requestServiceService.getItems(), this.user_id)
@@ -87,6 +92,7 @@ export class ServiceRequestComponent implements OnInit{
     console.log(this.date)
     */
     this.addNewService()
+    this.router.navigate(['/services', this.type_user, this.user_id])
   }
 
   formatDate(){

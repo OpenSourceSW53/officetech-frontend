@@ -18,11 +18,11 @@
         <div class="container">
 
             <mat-form-field appearance="fill" style="width: 100%;">
-            <mat-label>Introduce tu Respuesta</mat-label>
+            <mat-label>Your response</mat-label>
               <input matInput [formControl]="messageControl">
             </mat-form-field>
 
-          <button mat-stroked-button (click)="publishMessage()">Publicar Mensaje</button>
+          <button mat-stroked-button (click)="publishMessage()">Publish Message</button>
         </div>
       </mat-card-content>
     </div>
@@ -31,7 +31,7 @@
   <div *ngFor="let msg of messages">
     <mat-card class="answer-card">
       <mat-card-header>
-        <mat-card-title>Respuesta {{ msg.id }}</mat-card-title>
+        <mat-card-title>Response {{ msg.id }}</mat-card-title>
         <mat-card-subtitle>{{ msg.timestamp | date:'medium' }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
