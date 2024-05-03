@@ -39,7 +39,7 @@ export const routes: Routes = [
     path: "profile",
     component: ProfileComponent
   },
-  { path: "profile/edit-profile",
+  { path: "profile/:type_user/:id/edit-profile",
     component: EditProfileComponent
   },
   {
@@ -97,5 +97,6 @@ export const routes: Routes = [
   {
     path: "services/:type_user/:id/new_comment",
     component: CommentsComponent
-  }
+  },
+
 ];

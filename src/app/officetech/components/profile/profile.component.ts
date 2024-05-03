@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {UserService} from "../../services/user/user.service";
 import {UserEntity} from "../../models/user-entity";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NgIf} from "@angular/common";
 
 
@@ -27,7 +27,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -49,16 +50,17 @@ export class ProfileComponent implements OnInit {
         this.userService.getUserData().subscribe(
           (result) => {
             this.userData = result.find(user => user.id === id);
+            console.log(this.userData);
           }
         )
       } catch(error) {
         console.error('Error al cargar datos de usuario:', error);
       }
     }
-  editProfile() {
-    // Lógica para redirigir a la página de edición de perfil
-
-  }
-  }
+    editProfile() {
+      // @ts-ignore
+      this.router.navigate(["profile", this.userData["type_user"], this.userData["id"], "edit-profile"]);
+    }
+}
 
 

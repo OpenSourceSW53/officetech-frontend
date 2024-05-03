@@ -1,3 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .op {
   display: flex;
   justify-content: space-evenly; /* Asegura que las tarjetas estén espaciadas uniformemente */
@@ -6,7 +13,7 @@
 }
 
 .card, .card2 {
-  width: 45%; /* Establece un ancho relativo para ambas tarjetas para una mayor responsividad */
+  width: 400px; /* Establece un ancho relativo para ambas tarjetas para una mayor responsividad */
   margin: 50px 20px; /* Ajusta el margen para una mejor visualización */
   border-radius: 15px;
   background-color: white;
@@ -55,10 +62,91 @@ mat-card-actions button {
   border-radius: 4px;
 }
 
+.form-group input {
+  width: 80%;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid #000;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.form-group__names {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group__names input {
+  width: 70%;
+}
+
+.profile-image {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 0;
+}
+
+h2 {
+  margin: 0;
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 2.2rem;
+}
+
+.card-content {
+  padding: 2rem;
+}
+
+.card2 {
+  margin: 0;
+}
+
+.skills__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  gap: .5rem;
+}
+
+.btn {
+  background-color: #232F9B;
+  padding: .5rem 1rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: #fff;
+  border-radius: 15px;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+  width: 120px;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: scale(1.025);
+}
+
+.op {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+  margin-top: 2rem;
+}
+
 /* Asegúrate de revisar los media queries para responsividad en pantallas más pequeñas */
 @media (max-width: 768px) {
   .card, .card2, mat-card {
     width: 90%; /* Aumenta el ancho en pantallas pequeñas */
     margin: 20px auto; /* Reduce el margen para mejor ajuste */
+  }
+}
+
+
+@media screen and (max-width: 330px) {
+  .op {
+    flex-direction: column;
   }
 }

@@ -9,6 +9,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {SkillDialogComponent} from "../skill-dialog/skill-dialog.component";
 import {NgFor} from "@angular/common";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-edit-profile',
@@ -34,16 +35,17 @@ export class EditProfileComponent implements OnInit{
   email: string= "";
   phone: string= "";
   password: string= "";
+  type_user: string = "";
+  id_user: string = "";
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
-
-    this.firstName = "John";
-    this.lastName = "Doe";
-    this.email = "john.doe@example.com";
-    this.phone = "123456789";
-    this.password = "";
+    this.route.params.subscribe(params => {
+      this.type_user = params['type_user'];
+      this.id_user = params['id'];
+    })
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(SkillDialogComponent, {
@@ -56,5 +58,13 @@ export class EditProfileComponent implements OnInit{
         this.skills.push(result);
       }
     });
+  }
+
+  saveProfile() {
+    this.router.navigate(['profile', this.type_user, this.id_user])
+  }
+
+  cancelProfile() {
+    this.router.navigate(['profile', this.type_user, this.id_user])
   }
 }
