@@ -6,6 +6,7 @@ import {ActivatedRoute} from "@angular/router";
 import {environment} from "../../../../environments/environments";
 import {MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {NgIf} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-edit-profile',
@@ -31,7 +32,8 @@ export class EditProfileComponent implements OnInit{
 
   constructor(
     private route:ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -62,6 +64,14 @@ export class EditProfileComponent implements OnInit{
       }, error =>{
         console.error('Error al actualizar el perfil:', error);
       });
+    } else{
+      console.error('Error al actualizar el perfil:AAAAAAAAAAAA');
     }
-}}
+  }
+  goBack(){
+    const url = `/profile/${this.userData?.id}`; // Suponiendo que tienes userId definido en el componente
+    this.router.navigateByUrl(url);
+  }
+
+}
 

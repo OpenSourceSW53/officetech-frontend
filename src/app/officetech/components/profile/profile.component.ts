@@ -4,6 +4,7 @@ import {UserService} from "../../services/user/user.service";
 import {UserEntity} from "../../models/user-entity";
 import {ActivatedRoute} from "@angular/router";
 import {NgIf} from "@angular/common";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -27,7 +28,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -53,7 +55,8 @@ export class ProfileComponent implements OnInit {
   }
   editProfile() {
     // Lógica para redirigir a la página de edición de perfil
-
+    const url = `/edit-profile/${this.userData?.id}`;
+    this.router.navigateByUrl(url);
   }
   }
 
