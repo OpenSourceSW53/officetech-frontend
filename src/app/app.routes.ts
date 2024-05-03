@@ -35,10 +35,10 @@ export const routes: Routes = [
     component: ServicesCompanyComponent
   },
   {
-    path: "profile",
+    path: "profile/:id",
     component: ProfileComponent
   },
-  { path: "profile/edit-profile",
+  { path: "edit-profile/:id",
     component: EditProfileComponent
   },
   {
