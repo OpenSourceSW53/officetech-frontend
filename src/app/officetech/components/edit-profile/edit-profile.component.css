@@ -1,69 +1,193 @@
-.card {
-  width: 300px;
-  margin: 100px auto;
-  border-radius: 15px;
-  background-color: white;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Esto asegura que el contenedor ocupe toda la altura de la ventana */
+}
+
+.content-container {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 700px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  height: auto;
+  text-align: center;
+  justify-content: center;
+  padding: 40px;
+  margin: 60px 0; /* Mismo margen que se utiliza en el perfil */
+}
+
+mat-card-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.button1, .button2 {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 0 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button1 {
+  background-color: #2C3F84;
+  color: #FFF;
+  border: none;
+}
+
+.button1:hover {
+  background-color: #1E2E5C;
+}
+
+.button2 {
+  background-color: transparent;
+  border: 2px solid #2C3F84; /* Color del borde del botón 1 */
+  color: #2C3F84;
+}
+
+.button2:hover {
+  background-color: rgba(44, 63, 132, 0.1); /* Color de fondo transparente al pasar el mouse */
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+
+.logo-title {
+  font-size: 2rem;
+  margin: 0px;
+}
+
+mat-card-header {
+  justify-content: center;
+  padding: 0px 0px 70px 0px;
+  color: #2C3F84;
+}
+
+mat-card-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.input-field {
   text-align: center;
 }
 
-.op {
-  display: flex;
-  justify-content: center;
+.input-field p {
+  margin-bottom: 10px;
 }
 
-.profile-image {
-  width: 100%;
-  height: 150px;
-  overflow: hidden;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+.input-field input {
+  border-radius: 20px;
+  border: 1px solid #BDBDBD;
+  color: #0009;
+  padding: 8px 12px;
 }
 
-.profile-image img {
+.button {
+  display: inline-block;
+  padding: 16px 20px;
+  width: 300px;
+  margin-top: 30px;
+  background-color: #2C3F84;
+  color: #FFF;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #1E2E5C;
+}
+
+.background-circles {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
   border-radius: 50%;
+  filter: blur(4px);
 }
 
-.card-content {
-  padding: 20px;
+.circle1 {
+  width: 280px;
+  height: 280px;
+  background-color: #FBD864;
+  top: -5%;
+  left: 3%;
 }
 
-.card-body .form-group {
-  margin-bottom: 15px;
+.circle2 {
+  width: 200px;
+  height: 200px;
+  background-color: #2C3F84;
+  top: 60%;
+  left: 12%;
 }
 
-.btn-group {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+.circle3 {
+  width: 190px;
+  height: 190px;
+  background-color: #FBD864;
+  top: 80%;
+  left: 70%;
 }
 
-.btn {
-  margin: 10px;
+.circle4 {
+  width: 260px;
+  height: 260px;
+  background-color: #2C3F84;
+  top: 20%;
+  left: 80%;
 }
 
-.btn-edit {
-  border-radius: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 16px;
+@media screen and (max-width: 800px) {
+  .logo-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .circle1 {
+    width: 200px;
+    height: 200px;
+    left: -10%;
+  }
+
+  .circle2 {
+    left: -5%;
+  }
+
+  .circle4 {
+    top: 20%;
+    left: 90%;
+  }
 }
 
-.btn-edit:hover {
-  background-color: #0056b3;
-}
-
-.btn-cancel {
-  border-radius: 20px;
-  background-color: transparent;
-  color: #007bff;
-  border: 2px solid #007bff;
-  padding: 8px 16px;
-}
-
-.btn-cancel:hover {
-  background-color: rgba(0, 123, 255, 0.1);
+@media screen and (max-width: 569px) {
+  .button {
+    width: 100%;
+  }
 }

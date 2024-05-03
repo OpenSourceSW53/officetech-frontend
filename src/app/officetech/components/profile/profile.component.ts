@@ -32,29 +32,25 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe( params => {
-      console.log(params);
       const id = 1;
-      console.log('ID de usuario:', id);
-      console.log(typeof id);
-
-      if (!isNaN(id)) {
-         this.loadUser(id);
-      }else{
+      if (id !== undefined && !isNaN(id)) {
+        this.loadUser(id);
+      } else {
         console.error('ID de usuario no válido:', id);
       }
     });
   }
-    private loadUser(id: number) {
-      try{
-        this.userService.getUserData().subscribe(
-          (result) => {
-            this.userData = result.find(user => user.id === id);
-          }
-        )
-      } catch(error) {
-        console.error('Error al cargar datos de usuario:', error);
-      }
+  private loadUser(id: number) {
+    try{
+      this.userService.getUserData().subscribe(
+        (result) => {
+          this.userData = result.find(user => user.id === id);
+        }
+      )
+    } catch(error) {
+      console.error('Error al cargar datos de usuario:', error);
     }
+  }
   editProfile() {
     // Lógica para redirigir a la página de edición de perfil
 

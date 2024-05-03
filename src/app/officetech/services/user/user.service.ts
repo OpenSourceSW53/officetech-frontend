@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import {Injectable} from "@angular/core";
 import {UserEntity} from "../../models/user-entity";
 import {environment} from "../../../../environments/environments";
-import {tap} from "rxjs";
+import {Observable, tap} from "rxjs";
 
 
 @Injectable({
@@ -16,5 +16,10 @@ export class UserService {
   getUserData() {
     return this.http.get<UserEntity[]>(`${this.baseUrl}/users `).pipe(
       tap(data => console.log('Datos del usuario recibidos:', data)));
+  }
+
+  updateUserProfile(user: UserEntity): Observable<UserEntity> {
+    const url = `${this.baseUrl}/users/${user.id}`;
+    return this.http.put<UserEntity>(url, user);
   }
 }
