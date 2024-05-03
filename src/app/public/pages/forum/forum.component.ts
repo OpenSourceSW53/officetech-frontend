@@ -66,7 +66,8 @@ export class ForumComponent implements OnInit {
         console.log(result)
         result.forEach((forum: any)=> {
           if(this.id_user == forum.id_user) {
-            this.data =forum.forum_posts;
+            this.data = forum.forum_posts;
+            console.log('data',this.data)
           }
         })
 
@@ -97,7 +98,8 @@ export class ForumComponent implements OnInit {
   }
 
   newAnswer(id: number) {
-    this.router.navigate(['forum','publish', id]);
+    console.log('a',id)
+    this.router.navigate(['forum','technician',this.id_user,'publish', id]);
   }
 
   showNewForum(){

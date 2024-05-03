@@ -51,7 +51,7 @@ export const routes: Routes = [
     component: ResponsesComponent
   },
   {
-    path: "forum/publish/:id",
+    path: "forum/:type/:id/publish/:idForum",
     component: PublishComponent
   },
   {

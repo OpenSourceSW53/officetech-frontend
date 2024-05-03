@@ -32,6 +32,7 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './publish.component.css'
 })
 export class PublishComponent implements OnInit {
+  forum:any
   post: ForumCommentEntity | undefined;
   messageControl = new FormControl('',[Validators.required, Validators.maxLength(256)]);
   messages: { id: number, content: string, timestamp: Date }[] = [];
@@ -43,18 +44,21 @@ export class PublishComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe( params => {
-      const postId = +params['id'];  // Asegúrate de que 'id' sea el nombre correcto del parámetro.
+      const postId = +params['idForum'];  // Asegúrate de que 'id' sea el nombre correcto del parámetro.
+      const userId = +params['id'];
       if (!isNaN(postId)) {
-        this.loadPost(postId);
+        this.loadPost(postId,userId);
       }
     });
   }
 
-  private loadPost(postId: number) {
+  private loadPost(postId: number,userId:number) {
     try {
       this.forumService.getForumPosts().subscribe(
         r=>{
-          this.post = r.find((post: any) => post.id === postId);
+          this.forum = r.find((item: any) => item.id_user === userId);
+          console.log('post', this.forum.forum_posts[0]);
+          this.post= this.forum.forum_posts.find((post: any) => post.id === postId);
         }
       )
     } catch (error) {
