@@ -3,6 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: calc(100vh - 64px);
+
 }
 
 .op {
@@ -14,7 +16,6 @@
 
 .card, .card2 {
   width: 400px; /* Establece un ancho relativo para ambas tarjetas para una mayor responsividad */
-  margin: 50px 20px; /* Ajusta el margen para una mejor visualización */
   border-radius: 15px;
   background-color: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
@@ -93,6 +94,14 @@ h2 {
   font-size: 2.2rem;
 }
 
+.edit-profile__content {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
 .card-content {
   padding: 2rem;
 }
@@ -148,5 +157,12 @@ h2 {
 @media screen and (max-width: 330px) {
   .op {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 845px) {
+  .container {
+    height: auto;
+    margin: 2rem 0;
   }
 }

@@ -22,6 +22,11 @@ mat-card-header {
   padding: 1rem;
 }
 
+.card-width {
+  max-width: 550px;
+  margin: 2rem auto;
+}
+
 .card__content-header-title {
   padding-left: 1rem;
   font-size: 1rem;
@@ -38,9 +43,8 @@ mat-card-header {
 }
 
 .responses-title {
+  text-align: center;
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 10px;
-
-  margin: 2rem ;
+  margin: 2rem 0;
 }

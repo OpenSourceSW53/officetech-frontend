@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NgForOf, Location} from "@angular/common";
+import {NgForOf, Location, NgIf} from "@angular/common";
 import {CardComponent} from "../../../officetech/components/card/card.component";
 import {CardHeaderComponent} from "../../../officetech/components/card-header/card-header.component";
 import {PanelItemsService} from "../../../officetech/services/panel/panel-items.service";
@@ -12,7 +12,8 @@ import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
   imports: [
     CardComponent,
     CardHeaderComponent,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './panel-services.component.html',
   styleUrl: './panel-services.component.css'

@@ -1,7 +1,6 @@
 <ng-container *ngIf="post">
   <!-- Tarjeta para la publicación seleccionada -->
-
-  <mat-card role="contentinfo">
+  <mat-card role="contentinfo" class="card-post">
     <div class="card__content">
       <mat-card-header role="heading">
 
@@ -28,7 +27,7 @@
     </div>
 
   </mat-card>
-  <div *ngFor="let msg of messages">
+  <div *ngFor="let msg of messages" class="answers">
     <mat-card class="answer-card">
       <mat-card-header>
         <mat-card-title>Response {{ msg.id }}</mat-card-title>

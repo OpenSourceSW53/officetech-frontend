@@ -1,7 +1,7 @@
 <ng-container *ngIf="post">
   <!-- Tarjeta para la publicación seleccionada -->
 
-  <mat-card role="contentinfo">
+  <mat-card role="contentinfo" class="card-width">
     <div class="card__content">
       <mat-card-header role="heading">
 
@@ -20,12 +20,14 @@
 
     </div>
   </mat-card>
+
   <div class="response-container">
     <div class="responses-title">Responses:</div>
   </div>
+
   <!-- Lista de tarjetas para cada respuesta -->
-  <div *ngFor="let answer of post.answers">
-    <mat-card class="answer-card">
+  <div *ngFor="let answer of post.answers" >
+    <mat-card class="answer-card card-width" *ngIf="post.answers.length > 0">
       <mat-card-header>
         <mat-card-title>{{ answer.name }}</mat-card-title>
       </mat-card-header>
@@ -33,5 +35,9 @@
         {{ answer.description }}
       </mat-card-content>
     </mat-card>
+  </div>
+
+  <div class="noanswers" *ngIf="post.answers.length == 0">
+    <p>No answers yet</p>
   </div>
 </ng-container>

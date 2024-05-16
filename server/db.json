@@ -41,6 +41,20 @@
       "email": "",
       "password": "",
       "type_user": ""
+    },
+    {
+      "id": 7,
+      "name": " ",
+      "email": "",
+      "password": "",
+      "type_user": ""
+    },
+    {
+      "id": 8,
+      "name": "asd asd",
+      "email": "ari@gmail.com",
+      "password": "123456",
+      "type_user": "technician"
     }
   ],
   "posts": [

@@ -34,29 +34,23 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe( params => {
       console.log(params);
-      const id = 1;
-      console.log('ID de usuario:', id);
-      console.log(typeof id);
-
-      if (!isNaN(id)) {
-         this.loadUser(id);
-      }else{
-        console.error('ID de usuario no válido:', id);
-      }
-    });
-  }
-    private loadUser(id: number) {
       try{
         this.userService.getUserData().subscribe(
           (result) => {
-            this.userData = result.find(user => user.id === id);
-            console.log(this.userData);
+            console.log('hermanito', result)
+            result.forEach((user) => {
+              if (user.id == params["id"]) {
+                this.userData = user;
+              }
+            })
+            console.log('ga', this.userData);
           }
         )
       } catch(error) {
         console.error('Error al cargar datos de usuario:', error);
       }
-    }
+    });
+  }
     editProfile() {
       // @ts-ignore
       this.router.navigate(["profile", this.userData["type_user"], this.userData["id"], "edit-profile"]);
