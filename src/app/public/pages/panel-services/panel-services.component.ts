@@ -5,6 +5,7 @@ import {CardHeaderComponent} from "../../../officetech/components/card-header/ca
 import {PanelItemsService} from "../../../officetech/services/panel/panel-items.service";
 import {filter} from "rxjs/operators";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {UserService} from "../../../officetech/services/user/user.service";
 
 @Component({
   selector: 'app-panel-services',
@@ -23,8 +24,9 @@ export class PanelComponent implements OnInit {
   title: string = ""
   data: any[] = []
   id_user: number = 0
+  type_user: string = ""
 
-  constructor(private router: Router, private route: ActivatedRoute, private panelService: PanelItemsService, private location: Location) {
+  constructor(private router: Router, private route: ActivatedRoute, private panelService: PanelItemsService, private location: Location, private userService: UserService) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -37,33 +39,47 @@ export class PanelComponent implements OnInit {
   }
 
   getItems() {
-    this.panelService.getItems().subscribe(
+    this.panelService.getItems(this.type_user, this.id_user).subscribe(
       r=>{
-        console.log('r', r)
-        const result: any = {};
-        for(let i of r) {
-          if(!result[i.publisher_id]) {
-            result[i.publisher_id] = [{
-              first: i.first,
-              second : i.second,
-              third: i.third,
-              fourth: i.fourth
-            }]
-          }else {
-            result[i.publisher_id].push({
-              first: i.first,
-              second : i.second,
-              third: i.third,
-              fourth: i.fourth
-            })
+        console.log(r);
+
+        if(r) {
+          for(let i of r) {
+            if(this.type_user == "technician") { // if the user is technician, recover his services with the company name
+              this.userService.getUserDataByIdServices(i.companyId).subscribe(
+                res=>{
+                  this.data.push({
+                    first: i.title,
+                    second : res.name,
+                    third: i.status,
+                    fourth: i.createdAt.split("T")[0]
+                  })
+                },
+                e=>{
+                  console.log("Error to obtain user id", e)
+                }
+              )
+            }else {
+              this.userService.getUserDataByIdServices(i.technicianId).subscribe(
+                res=>{
+                  this.data.push({
+                    first: i.title,
+                    second : res.name,
+                    third: i.status,
+                    fourth: i.createdAt.split("T")[0]
+                  })
+                },
+                e=>{
+                  console.log("Error to obtain user id", e)
+                }
+              )
+            }
 
           }
         }
-
-        this.data = result[this.id_user];
       },
       e=>{
-        console.log(e)
+        console.log("Error to obtain services", e)
       }
     )
   }
@@ -71,11 +87,12 @@ export class PanelComponent implements OnInit {
   getTypeUser() {
     if (this.location.path().includes('technician')) {
       this.header_titles = ["Tech Service", "Company", "Status", "Due"];
-      this.title = "Your current projects"
+      this.title = "Your current projects";
+      this.type_user = "technician";
     }else if(this.location.path().includes('company')){
-      console.log('company')
       this.header_titles = ["Service", "Technician", "Status", "Due"];
-      this.title = "Your current tech services"
+      this.title = "Your current tech services";
+      this.type_user = "company";
     }
 
     try {
