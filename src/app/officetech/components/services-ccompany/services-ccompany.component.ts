@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import {RequestServiceService} from "../../services/request-service/request-service.service";
-import {DatePipe, NgForOf} from "@angular/common";  // Adjust the path accordingly
+import {DatePipe, NgForOf} from "@angular/common";
+import {PanelItemsService} from "../../services/panel/panel-items.service";
+import {UserService} from "../../services/user/user.service";  // Adjust the path accordingly
 
 interface Service {
-  id: number;
   first: string;
   second: string;
   third: string;
+  fourth: number;
 }
 
 @Component({
@@ -27,6 +29,8 @@ export class ServicesCompanyComponent implements OnInit {
 
   constructor(
     private requestService: RequestServiceService,
+    private panelService: PanelItemsService,
+    private userService: UserService,
     private router: Router
   ) {
     // Retrieve type_user and id from the URL
@@ -39,6 +43,31 @@ export class ServicesCompanyComponent implements OnInit {
   }
 
   loadServices() {
+    console.log("Type user:", this.type_user, "ID:", this.id);
+    this.panelService.getItemsCompleted(this.type_user, parseInt(this.id)).subscribe(
+      r=> {
+        console.log(r);
+        if(r) {
+          for(let i of r) {
+            this.userService.getUserDataByIdServices(i.technicianId).subscribe(
+              res=>{
+                this.services.push({
+                  first: i.title,
+                  second : res.name,
+                  third: i.createdAt.split("T")[0],
+                  fourth: i.rating
+                })
+              },
+              e=>{
+                console.log("Error to obtain user id", e)
+              }
+            )
+
+          }
+        }
+      }
+    )
+    /*
     this.requestService.getItems().subscribe({
       next: (data: Service[]) => {
         console.log("Datos recibidos:", data);
@@ -49,6 +78,8 @@ export class ServicesCompanyComponent implements OnInit {
         console.error('Error fetching services', error);
       }
     });
+    */
+
   }
 
   newComment() {

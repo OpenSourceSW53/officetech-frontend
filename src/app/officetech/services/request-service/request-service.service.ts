@@ -20,7 +20,7 @@ export class RequestServiceService {
   }
 
   getItems() {
-    return this.http.get<any>(`${this.baseUrl}/api/v1/services`)
+    return this.http.get<any>(`${this.baseUrl}/services`)
   }
 
   addService(newService: any) {

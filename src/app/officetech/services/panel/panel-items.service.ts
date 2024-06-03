@@ -15,4 +15,8 @@ export class PanelItemsService {
   getItems(type_user: string, id_user: number) {
     return this.http.get<any>(`${this.baseUrl}/services/${type_user}/active/${id_user}`)
   }
+
+  getItemsCompleted(type_user: string, id_user: number) {
+    return this.http.get<any>(`${this.baseUrl}/services/${type_user}/completed/${id_user}`)
+  }
 }

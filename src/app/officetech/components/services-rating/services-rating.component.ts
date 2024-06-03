@@ -3,6 +3,8 @@ import { Router } from "@angular/router";
 import {RequestServiceService} from "../../services/request-service/request-service.service";
 import {DatePipe, NgForOf} from "@angular/common";
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {UserService} from "../../services/user/user.service";
+import {PanelItemsService} from "../../services/panel/panel-items.service";
 
 interface Service {
   id: number;
@@ -31,6 +33,8 @@ export class ServicesRatingComponent implements OnInit {
 
   constructor(
     private requestServiceRating: RequestServiceService,
+    private userService: UserService,
+    private panelService: PanelItemsService,
     private router: Router
   ) {
     // Retrieve type_user and id from the URL
@@ -43,16 +47,32 @@ export class ServicesRatingComponent implements OnInit {
   }
 
   loadServicesRating() {
-    this.requestServiceRating.getItems().subscribe({
-      next: (data: Service[]) => {
-        console.log(data);
-        this.services = data.filter((service: Service) => service.id === 9 || service.id === 10);
-        console.log(this.services);
-      },
-      error: (error: any) => {
-        console.error('Error fetching services', error);
+    this.panelService.getItemsCompleted(this.type_user, parseInt(this.id)).subscribe(
+      r=> {
+          if(r) {
+            for(let i of r) {
+              this.userService.getUserDataByIdServices(i.companyId).subscribe(
+                res=>{
+                  this.services.push({
+                    id: i.id,
+                    first: i.title,
+                    second : res.name,
+                    third: i.createdAt.split("T")[0],
+                    fourth: i.rating,
+                    rating: i.rating
+                  })
+                },
+                e=>{
+                  console.log("Error to obtain user id", e)
+                }
+              )
+
+            }
+          }
+      }, e=> {
+        console.log(e);
       }
-    });
+    )
   }
 
 }
