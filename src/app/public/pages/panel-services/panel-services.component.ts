@@ -26,7 +26,7 @@ export class PanelComponent implements OnInit {
   id_user: number = 0
   type_user: string = ""
 
-  constructor(private router: Router, private route: ActivatedRoute, private panelService: PanelItemsService, private location: Location, private userService: UserService) {
+  constructor(private router: Router, private route: ActivatedRoute, private panelService: PanelItemsService, private location: Location) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -39,48 +39,30 @@ export class PanelComponent implements OnInit {
   }
 
   getItems() {
-    this.panelService.getItems(this.type_user, this.id_user).subscribe(
+    this.panelService.getItems().subscribe(
       r=>{
-        console.log(r);
-
-        if(r) {
-          for(let i of r) {
-            if(this.type_user == "technician") { // if the user is technician, recover his services with the company name
-              this.userService.getUserDataByIdServices(i.companyId).subscribe(
-                res=>{
-                  this.data.push({
-                    first: i.title,
-                    second : res.name,
-                    third: i.status,
-                    fourth: i.createdAt.split("T")[0]
-                  })
-                },
-                e=>{
-                  console.log("Error to obtain user id", e)
-                }
-              )
-            }else {
-              this.userService.getUserDataByIdServices(i.technicianId).subscribe(
-                res=>{
-                  this.data.push({
-                    first: i.title,
-                    second : res.name,
-                    third: i.status,
-                    fourth: i.createdAt.split("T")[0]
-                  })
-                },
-                e=>{
-                  console.log("Error to obtain user id", e)
-                }
-              )
-            }
-
+        console.log('r', r)
+        const result: any = {};
+        for(let i of r) {
+          if(!result[i.publisher_id]) {
+            result[i.publisher_id] = [{
+              first: i.first,
+              second : i.second,
+              third: i.third,
+              fourth: i.fourth
+            }]
+          }else {
+            result[i.publisher_id].push({
+              first: i.first,
+              second : i.second,
+              third: i.third,
+              fourth: i.fourth
+            })
           }
         }
+        this.data = result[this.id_user];
       },
-      e=>{
-        console.log("Error to obtain services", e)
-      }
+      e=>console.log('e', e)
     )
   }
 

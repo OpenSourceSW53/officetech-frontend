@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import {Injectable} from "@angular/core";
 import {UserEntity} from "../../models/user-entity";
-import {environment} from "../../../../environments/environment";
+import {environment} from "../../../../environments/environments";
 import {tap} from "rxjs";
 
 

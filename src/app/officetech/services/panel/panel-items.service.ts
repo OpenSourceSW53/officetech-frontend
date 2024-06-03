@@ -12,7 +12,7 @@ export class PanelItemsService {
     this.baseUrl = environment.baseUrl;
   }
 
-  getItems(type_user: string, id_user: number) {
-    return this.http.get<any>(`${this.baseUrl}/services/${type_user}/active/${id_user}`)
+  getItems() {
+    return this.http.get<any>(`${this.baseUrl}/api/v1/services`)
   }
 }
