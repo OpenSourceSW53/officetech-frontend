@@ -15,5 +15,9 @@
     <div class="card__content-item" style="width: 10%">
       <p aria-describedby="item">{{e["fourth"]}}</p>
     </div>
+
+    <div class="icon-cancel" (click)="cancelService(e['id'])">
+      <i class="fa-solid fa-ban"></i>
+    </div>
   </div>
 </mat-card>

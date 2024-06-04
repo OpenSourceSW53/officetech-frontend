@@ -49,6 +49,7 @@ export class PanelComponent implements OnInit {
               this.userService.getUserDataByIdServices(i.companyId).subscribe(
                 res=>{
                   this.data.push({
+                    id: i.id,
                     first: i.title,
                     second : res.name,
                     third: i.status,
@@ -63,6 +64,7 @@ export class PanelComponent implements OnInit {
               this.userService.getUserDataByIdServices(i.technicianId).subscribe(
                 res=>{
                   this.data.push({
+                    id: i.id,
                     first: i.title,
                     second : res.name,
                     third: i.status,
@@ -82,6 +84,8 @@ export class PanelComponent implements OnInit {
         console.log("Error to obtain services", e)
       }
     )
+
+    console.log(this.data)
   }
 
   getTypeUser() {
