@@ -9,6 +9,7 @@ import {MatTooltip} from "@angular/material/tooltip";
 import {RatingComponent, StarRatingColor} from "../rating/rating.component";
 import {PanelItemsService} from "../../services/panel/panel-items.service";
 import {FormsModule} from "@angular/forms";
+import {UserService} from "../../services/user/user.service";
 
 @Component({
   selector: 'app-comments',
@@ -42,7 +43,8 @@ export class CommentsComponent implements OnInit{
   id_service: string = "";
   comment: string = "";
   service: any = {};
-  constructor(private router: Router, private authService: AuthService, private route: ActivatedRoute, private panelService: PanelItemsService){}
+  technician: string = "";
+  constructor(private router: Router, private authService: AuthService, private route: ActivatedRoute, private panelService: PanelItemsService, private userService: UserService){}
 
   ngOnInit() {
     this.route.params.subscribe(p => {
@@ -58,11 +60,21 @@ export class CommentsComponent implements OnInit{
     this.panelService.getServicesByID(parseInt(this.id_service)).subscribe(
       r => {
         this.service = r;
+        console.log(this.service)
+        this.userService.getUserDataByIdServices(this.service.technicianId).subscribe(
+          r => {
+            this.technician = r.name;
+          },
+          e => {
+            console.log(e);
+          }
+        )
       },
       e => {
         console.log(e);
       }
     )
+
   }
 
   addComment() {
