@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitleGroup,MatCardModule} from "@angular/material/card";
-import {NgForOf, NgOptimizedImage} from "@angular/common";
+import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../../shared/services/auth/auth.service";
 import {MatIcon} from "@angular/material/icon";
@@ -25,7 +25,8 @@ import {FormsModule} from "@angular/forms";
     MatTooltip,
     NgForOf,
     RatingComponent,
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.css'
@@ -40,6 +41,7 @@ export class CommentsComponent implements OnInit{
   id_user: string = "";
   id_service: string = "";
   comment: string = "";
+  service: any = {};
   constructor(private router: Router, private authService: AuthService, private route: ActivatedRoute, private panelService: PanelItemsService){}
 
   ngOnInit() {
@@ -48,6 +50,19 @@ export class CommentsComponent implements OnInit{
       this.id_user = p['id'];
       this.id_service = p['serviceId'];
     })
+
+    this.getService();
+  }
+
+  getService() {
+    this.panelService.getServicesByID(parseInt(this.id_service)).subscribe(
+      r => {
+        this.service = r;
+      },
+      e => {
+        console.log(e);
+      }
+    )
   }
 
   addComment() {

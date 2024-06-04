@@ -27,4 +27,9 @@ export class PanelItemsService {
   addCommentAndRating(id_service: number, rating: number, comment: string) {
     return this.http.put<any>(`${this.baseUrl}/services/${id_service}?comment=${comment}&rating=${rating}`, {})
   }
+
+  getServicesByID(id_service: number) {
+    return this.http.get<any>(`${this.baseUrl}/services/${id_service}`)
+  }
+
 }
