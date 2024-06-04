@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {CommonModule} from "@angular/common";
 import {RequestServiceService} from "../../services/request-service/request-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {MatOption, MatSelect} from "@angular/material/select";
 
 Directive({
   selector: '[appAutoResize]'
@@ -24,12 +25,16 @@ Directive({
     ReactiveFormsModule,
     MatCard,
     MatButtonModule,
-    CommonModule
+    CommonModule,
+    MatSelect,
+    MatOption
   ],
   templateUrl: './service-request.component.html',
   styleUrl: './service-request.component.css'
 })
 export class ServiceRequestComponent implements OnInit{
+  technician_selected: string = "";
+  technicians_available: any[] = [];
   myForm: FormGroup;
   subject: string = '';
   description: string = '';
@@ -44,6 +49,7 @@ export class ServiceRequestComponent implements OnInit{
     this.myForm = new FormGroup({
       subject: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
+      technician: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required)
     });
   }
@@ -54,7 +60,11 @@ export class ServiceRequestComponent implements OnInit{
     })
     this.resize();
     this.user_id = this.router.url.split('/')[3];
-    console.log(this.requestServiceService.getItems(), this.user_id)
+    //console.log(this.requestServiceService.getItems(), this.user_id)
+    this.requestServiceService.getTechnicians().subscribe(technicians => {
+      this.technicians_available = technicians;
+    });
+
     this.requestServiceService.getItemCount().subscribe(count => {
       this.cantidadItems = count; // Guarda la cantidad de ítems en la variable cantidadItems
     });
@@ -73,18 +83,24 @@ export class ServiceRequestComponent implements OnInit{
 
   onInputChange(event: any) {
     const inputValue = event.target.value;
+    if(inputValue.length == 2 || inputValue.length == 5){
+      event.target.value = inputValue + '/';
+    }
+    /*
+    const inputValue = event.target.value;
     const regex = /^[0-9]*$/; // Expresión regular que valida solo números
     if (!regex.test(inputValue)) {
       event.target.value = inputValue.slice(0, -1); // Eliminar el último carácter si no es un número
-    }
+    }*/
   }
 
 
   onPublish() {
     this.subject = this.myForm.get('subject')?.value ?? '';
     this.description = this.myForm.get('description')?.value ?? '';
+    this.technician_selected = this.myForm.get('technician')?.value ?? '';
     this.date = this.myForm.get('date')?.value ?? null;
-    this.date= this.formatDate();
+    //this.date= this.formatDate();
     /*
     console.log(this.cantidadItems)
     console.log(this.subject)

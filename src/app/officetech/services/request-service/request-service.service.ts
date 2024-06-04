@@ -27,4 +27,8 @@ export class RequestServiceService {
     const url = `${this.baseUrl}/api/v1/services`;
     return this.http.post(url, newService);
   }
+
+  getTechnicians() {
+    return this.http.get<any>(`${this.baseUrl}/services/users/technician`)
+  }
 }

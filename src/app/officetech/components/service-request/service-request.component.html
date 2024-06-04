@@ -13,9 +13,20 @@
     <mat-error *ngIf="myForm.get('description')?.hasError('required')">Description is <strong>required</strong></mat-error>
   </mat-form-field>
 
+  <mat-form-field class="example-full-width">
+    <mat-label>Technician</mat-label>
+    <mat-select formControlName="technician" [(ngModel)]="technician_selected" name="car">
+      @for (tech of technicians_available; track tech) {
+        <mat-option [value]="tech.id">{{tech.name}}</mat-option>
+      }
+    </mat-select>
+
+    <mat-error *ngIf="myForm.get('technician')?.hasError('required')">The technician is <strong>required</strong></mat-error>
+  </mat-form-field>
+
   <mat-form-field class="example-full-width custom-form-field">
     <mat-label>Estimate due time</mat-label>
-    <input type="text" matInput formControlName="date" placeholder="dd/mm/yyyy" pattern="[0-9]*" (input)="onInputChange($event)" maxlength="8" minlength="8">
+    <input type="text" matInput formControlName="date" placeholder="dd/mm/yyyy" (input)="onInputChange($event)" maxlength="10" minlength="10">
     <mat-error *ngIf="myForm.get('date')?.hasError('required')">Date is <strong>required</strong></mat-error>
   </mat-form-field>
 </form>
