@@ -7,6 +7,8 @@ import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
 import {MatTooltip} from "@angular/material/tooltip";
 import {RatingComponent, StarRatingColor} from "../rating/rating.component";
+import {PanelItemsService} from "../../services/panel/panel-items.service";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-comments',
@@ -22,7 +24,8 @@ import {RatingComponent, StarRatingColor} from "../rating/rating.component";
     MatIconButton,
     MatTooltip,
     NgForOf,
-    RatingComponent
+    RatingComponent,
+    FormsModule
   ],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.css'
@@ -35,17 +38,28 @@ export class CommentsComponent implements OnInit{
   starColorW:StarRatingColor = StarRatingColor.warn;
   type_user: string = "";
   id_user: string = "";
-  constructor(private router: Router, private authService: AuthService, private route: ActivatedRoute){}
+  id_service: string = "";
+  comment: string = "";
+  constructor(private router: Router, private authService: AuthService, private route: ActivatedRoute, private panelService: PanelItemsService){}
 
   ngOnInit() {
     this.route.params.subscribe(p => {
       this.type_user = p['type_user'];
       this.id_user = p['id'];
+      this.id_service = p['serviceId'];
     })
   }
 
   addComment() {
-    this.router.navigate([`/services/${this.type_user}/${this.id_user}`])
+    this.panelService.addCommentAndRating(parseInt(this.id_service), this.rating, this.comment).subscribe(
+      r => {
+        console.log(r);
+        this.router.navigate([`/services/${this.type_user}/${this.id_user}`])
+      },
+      e => {
+        console.log(e);
+      }
+    )
   }
 
   onRatingChanged(rating: number){

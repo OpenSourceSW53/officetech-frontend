@@ -14,7 +14,7 @@
       </mat-card-content>
     </mat-card>
     <div class="comment-section">
-      <textarea class="text-box" rows="4" placeholder="Escriba sus comentarios aquí..."></textarea>
+      <textarea class="text-box" rows="4" placeholder="Escriba sus comentarios aquí..." [(ngModel)]="comment"></textarea>
       <p class="phrase-rating">Rating</p>
       <app-rating class="rating-2" [rating]="rating"  [starCount]="starCount" [color]="starColorW" (ratingUpdated)="onRatingChanged($event)"></app-rating>
       <button class="comment-button" (click)="addComment()">Add comment</button>

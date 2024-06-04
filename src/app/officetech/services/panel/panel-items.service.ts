@@ -23,4 +23,8 @@ export class PanelItemsService {
   editStatusService(id_service: number, status: string) {
     return this.http.put<any>(`${this.baseUrl}/services/change-status/${id_service}?status=${status}`, {})
   }
+
+  addCommentAndRating(id_service: number, rating: number, comment: string) {
+    return this.http.put<any>(`${this.baseUrl}/services/${id_service}?comment=${comment}&rating=${rating}`, {})
+  }
 }

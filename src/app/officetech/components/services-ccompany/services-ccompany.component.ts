@@ -6,6 +6,7 @@ import {PanelItemsService} from "../../services/panel/panel-items.service";
 import {UserService} from "../../services/user/user.service";  // Adjust the path accordingly
 
 interface Service {
+  id: number;
   first: string;
   second: string;
   third: string;
@@ -52,6 +53,7 @@ export class ServicesCompanyComponent implements OnInit {
             this.userService.getUserDataByIdServices(i.technicianId).subscribe(
               res=>{
                 this.services.push({
+                  id: i.id,
                   first: i.title,
                   second : res.name,
                   third: i.createdAt.split("T")[0],
@@ -82,8 +84,8 @@ export class ServicesCompanyComponent implements OnInit {
 
   }
 
-  newComment() {
-    this.router.navigate(["services", this.type_user, this.id, "new_comment"]);
+  newComment(serviceId: number) {
+    this.router.navigate(["services", this.type_user, this.id, "new_comment", serviceId]);
   }
 
   newRequestService() {

@@ -88,14 +88,14 @@ export const routes: Routes = [
   },
   {
     path: "services/technician/:id",
-    component:   ServicesRatingComponent
+    component: ServicesRatingComponent
   },
   {
     path: "profile/:type_user/:id",
     component: ProfileComponent
   },
   {
-    path: "services/:type_user/:id/new_comment",
+    path: "services/:type_user/:id/new_comment/:serviceId",
     component: CommentsComponent
   },
 
