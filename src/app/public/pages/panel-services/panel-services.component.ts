@@ -52,7 +52,7 @@ export class PanelComponent implements OnInit {
                     first: i.title,
                     second : res.name,
                     third: i.status,
-                    fourth: i.createdAt.split("T")[0]
+                    fourth: i.date
                   })
                 },
                 e=>{
@@ -66,7 +66,7 @@ export class PanelComponent implements OnInit {
                     first: i.title,
                     second : res.name,
                     third: i.status,
-                    fourth: i.createdAt.split("T")[0]
+                    fourth: i.date
                   })
                 },
                 e=>{
