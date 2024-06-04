@@ -24,8 +24,7 @@ export class RequestServiceService {
   }
 
   addService(newService: any) {
-    const url = `${this.baseUrl}/api/v1/services`;
-    return this.http.post(url, newService);
+    return this.http.post(`${this.baseUrl}/services`, newService);
   }
 
   getTechnicians() {

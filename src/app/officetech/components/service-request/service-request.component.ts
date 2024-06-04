@@ -10,6 +10,7 @@ import {CommonModule} from "@angular/common";
 import {RequestServiceService} from "../../services/request-service/request-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatOption, MatSelect} from "@angular/material/select";
+import {PanelItemsService} from "../../services/panel/panel-items.service";
 
 Directive({
   selector: '[appAutoResize]'
@@ -41,11 +42,9 @@ export class ServiceRequestComponent implements OnInit{
   date: string = '';
   user_id:string = '';
   type_user:string="";
-  cantidadItems = 0;
-  myFormControl = new FormControl('', [Validators.required]);
+
   private maxHeight = '300px';
-  constructor(private elementRef: ElementRef, private requestServiceService : RequestServiceService, private router: Router,
-              private route: ActivatedRoute) {
+  constructor(private elementRef: ElementRef, private requestServiceService : RequestServiceService, private router: Router, private route: ActivatedRoute) {
     this.myForm = new FormGroup({
       subject: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
@@ -64,10 +63,10 @@ export class ServiceRequestComponent implements OnInit{
     this.requestServiceService.getTechnicians().subscribe(technicians => {
       this.technicians_available = technicians;
     });
-
+    /*
     this.requestServiceService.getItemCount().subscribe(count => {
       this.cantidadItems = count; // Guarda la cantidad de ítems en la variable cantidadItems
-    });
+    });*/
   }
 
   @HostListener('input', ['$event.target'])
@@ -120,7 +119,23 @@ export class ServiceRequestComponent implements OnInit{
   }
 
   addNewService() {
+    console.log(this.technician_selected, this.subject, this.description, this.date, this.user_id, this.date)
+    const newService = {
+      title: this.subject,
+      description: this.description,
+      estimatePricing: 0,
+      date: this.date,
+      comment: "",
+      companyId: parseInt(this.user_id),
+      technicianId: parseInt(this.technician_selected),
+      rating: 0
+    }
 
+    this.requestServiceService.addService(newService).subscribe(
+      r=>console.log(r),
+      e=>console.log(e)
+    )
+    /*
     const newService = {
       id: this.cantidadItems++,
       first: this.subject,
@@ -134,6 +149,6 @@ export class ServiceRequestComponent implements OnInit{
       .subscribe(
         response => console.log('Nuevo servicio agregado:', response),
         error => console.error('Error al agregar el servicio:', error)
-      );
+      );*/
   }
 }
