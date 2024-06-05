@@ -58,7 +58,7 @@ export class ServicesRatingComponent implements OnInit {
                     first: i.title,
                     second : res.name,
                     third: i.createdAt.split("T")[0],
-                    fourth: i.rating,
+                    fourth: i.createdAt.split("T")[0],
                     rating: i.rating
                   })
                 },
