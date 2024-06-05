@@ -10,6 +10,7 @@ class ForumCommentEntity {
   title: string;
   description: string;
   answers: IAnswer[];
+
   constructor(id : number, image: string, name: string, title: string, description: string, answers: IAnswer[]) {
     this.id= id;
     this.image = image;

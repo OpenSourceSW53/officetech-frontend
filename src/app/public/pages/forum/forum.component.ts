@@ -65,10 +65,14 @@ export class ForumComponent implements OnInit {
       result => {
         console.log(result)
         result.forEach((forum: any)=> {
-          if(this.id_user == forum.id_user) {
-            this.data = forum.forum_posts;
-            console.log('data',this.data)
+          // here call the method users
+          const forumPost = {
+            image: "asdasd",
+            name: "nekoito",
+            title: forum.title,
+            description: forum.description,
           }
+          this.data.push(forum);
         })
 
 
@@ -104,6 +108,24 @@ export class ForumComponent implements OnInit {
 
   showNewForum(){
     this.showNewForm = !this.showNewForm;
+  }
+
+  saveNewPostForum() {
+    let newForum = {
+      idCompany: this.id_user,
+      title: this.dataNewForum.title,
+      description: this.dataNewForum.description
+    };
+
+    this.forumService.saveForumPost(newForum).subscribe(
+      r=>{
+        console.log(r)
+        if(r) {
+          this.showNewForm = false;
+          this.getForumPosts();
+        }
+      }
+    )
   }
 
   createNewForum() {

@@ -77,15 +77,21 @@ h1 {
   cursor: pointer;
 }
 
+.popup__new_forum__content-close i:hover {
+  opacity: .8;
+}
+
+
 .forum__header {
   display: flex;
   flex-direction: column;
 }
 
 .forum__header-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #232F9B;
   font-family: "Lexend Deca", sans-serif;
+  font-weight: bold;
 }
 
 .forum__header-new, .popup__new_forum__content-button {

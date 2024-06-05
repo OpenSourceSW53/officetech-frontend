@@ -12,10 +12,26 @@ export class ForumService {
     this.baseUrl = environment.baseUrl;
   }
   getForumPosts() {
-    return this.http.get<any>(`${this.baseUrl}/api/v1/posts`)
+    return this.http.get<any>(`${this.baseUrl}/forum/posts`)
+  }
+
+  getForumPostById(id: number) {
+    return this.http.get<any>(`${this.baseUrl}/forum/posts/${id}`)
   }
 
   createForumPost(id: number, post: any) {
-    return this.http.post<any>(`${this.baseUrl}/api/v1/posts?id_user=${id}`, post)
+    return this.http.post<any>(`${this.baseUrl}/forum/new-post`, post)
+  }
+
+  saveForumPost(post: any) {
+    return this.http.post<any>(`${this.baseUrl}/forum/new-post`, post)
+  }
+
+  saveNewAnswerByPostId(newAnswer: any) {
+    return this.http.post<any>(`${this.baseUrl}/answers`, newAnswer)
+  }
+
+  getAnswersByPostId(idPost: number) {
+    return this.http.get<any>(`${this.baseUrl}/answers/post/${idPost}`)
   }
 }
