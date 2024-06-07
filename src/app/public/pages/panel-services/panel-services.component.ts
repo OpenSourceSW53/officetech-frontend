@@ -41,7 +41,6 @@ export class PanelComponent implements OnInit {
   getItems() {
     this.panelService.getItems(this.type_user, this.id_user).subscribe(
       r=>{
-        console.log(r);
 
         if(r) {
           for(let i of r) {
@@ -84,8 +83,6 @@ export class PanelComponent implements OnInit {
         console.log("Error to obtain services", e)
       }
     )
-
-    console.log(this.data)
   }
 
   getTypeUser() {

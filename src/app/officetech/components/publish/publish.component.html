@@ -30,7 +30,7 @@
   <div *ngFor="let msg of messages" class="answers">
     <mat-card class="answer-card">
       <mat-card-header>
-        <mat-card-title>Response {{ msg.id }}</mat-card-title>
+        <mat-card-title><strong>{{ msg.nameTechnician }}'</strong> response</mat-card-title>
         <mat-card-subtitle>{{ msg.createdAt | date:'medium' }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>

@@ -27,7 +27,6 @@ export class CommentComponent implements OnInit{
               private route: ActivatedRoute, private authService: AuthService){
   }
   ngOnInit() {
-    console.log(this.element);
     this.answers.emit(this.element.answers)
     this.getLengthAnswers();
   }

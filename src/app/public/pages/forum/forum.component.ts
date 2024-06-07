@@ -63,7 +63,7 @@ export class ForumComponent implements OnInit {
   getForumPosts() {
     this.forumService.getForumPosts().subscribe(
       result => {
-        console.log(result)
+        this.data = [];
         result.forEach((forum: any)=> {
           // here call the method users
           const forumPost = {
@@ -75,13 +75,10 @@ export class ForumComponent implements OnInit {
             companyId: forum.companyId
           }
 
-          console.log('FORUM', forum)
-
           let response = this.authService.getUserById(forum.companyId);
           try {
             response.subscribe(
               (user: any) => {
-                forumPost.image = "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/nekolas-profile.png";
                 forumPost.name = user.firstName + " " + user.lastName;
               }
             )
@@ -90,12 +87,7 @@ export class ForumComponent implements OnInit {
           }
 
           this.data.push(forumPost);
-
-
         })
-
-
-
       },
       e => {
         console.log(e);
@@ -107,7 +99,6 @@ export class ForumComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.type_user = (params['type_user'] === "company")? 1 : 0;
       this.id_user = params['id'];
-      console.log('id', this.id_user)
     })
   }
 
@@ -115,13 +106,7 @@ export class ForumComponent implements OnInit {
     this.answers = answers;
   }
 
-  getResponses(id: number) {
-    console.log('id', this.id_user)
-    this.router.navigate(['forum','responses', this.id_user]);
-  }
-
   newAnswer(id: number) {
-    console.log('a',id)
     this.router.navigate(['forum','technician',this.id_user,'publish', id]);
   }
 
@@ -138,61 +123,22 @@ export class ForumComponent implements OnInit {
 
     this.forumService.saveForumPost(newForum).subscribe(
       r=>{
-        console.log(r)
         if(r) {
           this.showNewForm = false;
           this.getForumPosts();
+          this.dataNewForum = {
+            title: "",
+            description: "",
+            user_owner: {
+              id: 0,
+              type_user: "",
+              name: "",
+              email: "",
+              password: "",
+            },
+            answers: []
+          };
         }
-      }
-    )
-  }
-
-  createNewForum() {
-    this.authService.getUsers().subscribe(
-      (result: any[]) => {
-        console.log('result', result)
-        this.dataNewForum.user_owner = result.find((user: any) => user.id === parseInt(this.id_user)) || {};
-
-        this.forumService.getForumPosts().subscribe(
-          (forums: any[]) => {
-            forums.forEach((user_forum: any) => {
-              console.log("userforum", user_forum);
-              if(user_forum.id_user == this.dataNewForum.user_owner.id) {
-                const body_new_post: any = {
-                  image: "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/nekolas-profile.png",
-                  name: this.dataNewForum.user_owner.name,
-                  title: this.dataNewForum.title,
-                  description: this.dataNewForum.description,
-                  answers: this.dataNewForum.answers
-                }
-
-                console.log('user', this.dataNewForum.user_owner)
-
-                this.forumService.createForumPost(this.dataNewForum.user_owner.id, body_new_post).subscribe(
-                  result => {
-                    console.log('post created: ', result);
-                    this.getForumPosts();
-                    this.showNewForm = false;
-                  },
-                  e => {
-                    console.log(e);
-                  }
-                )
-              }
-
-            })
-          }
-        )
-
-
-
-
-
-
-
-      },
-      e => {
-        console.log(e);
       }
     )
   }

@@ -29,7 +29,6 @@ export class ServicesCompanyComponent implements OnInit {
   id: string;
 
   constructor(
-    private requestService: RequestServiceService,
     private panelService: PanelItemsService,
     private userService: UserService,
     private router: Router
@@ -44,10 +43,8 @@ export class ServicesCompanyComponent implements OnInit {
   }
 
   loadServices() {
-    console.log("Type user:", this.type_user, "ID:", this.id);
     this.panelService.getItemsCompleted(this.type_user, parseInt(this.id)).subscribe(
       r=> {
-        console.log(r);
         if(r) {
           for(let i of r) {
             this.userService.getUserDataByIdServices(i.technicianId).subscribe(
@@ -69,19 +66,6 @@ export class ServicesCompanyComponent implements OnInit {
         }
       }
     )
-    /*
-    this.requestService.getItems().subscribe({
-      next: (data: Service[]) => {
-        console.log("Datos recibidos:", data);
-        this.services = data.filter((service: Service) => service.id === 9 || service.id === 10);
-        console.log("Servicios filtrados:", this.services);
-      },
-      error: (error: any) => {
-        console.error('Error fetching services', error);
-      }
-    });
-    */
-
   }
 
   newComment(serviceId: number) {
