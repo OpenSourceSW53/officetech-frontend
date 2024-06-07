@@ -9,6 +9,8 @@ import {Router} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "../../../shared/services/auth/auth.service";
 import {UserEntity} from "../../models/user-entity";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogComponent} from "../dialog/dialog.component";
 
 @Component({
   selector: 'app-sign-in',
@@ -24,7 +26,8 @@ import {UserEntity} from "../../models/user-entity";
     MatIcon,
     MatSuffix,
     MatHint,
-    FormsModule
+    FormsModule,
+    DialogComponent
   ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
@@ -33,8 +36,26 @@ export class SignInComponent {
   hide = true;
   email: string = "";
   pass: string = "";
-  constructor(private router: Router, private authService: AuthService) {
+  data: any = {
+    status_code: 0,
+    message: "",
+    user: {}
+  };
+  showDialog: boolean = false;
+  constructor(private router: Router, private authService: AuthService,
+              public dialog: MatDialog) {
     this.hide=true;
+  }
+
+  closeDialog() {
+    this.showDialog = false;
+  }
+
+  openDialog(message: string) {
+    this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: {message: message}
+    })
   }
 
   goToSignUp() {
@@ -42,20 +63,20 @@ export class SignInComponent {
   }
 
   async signIn() {
-    const response: any = await this.authService.signIn(this.email, this.pass);
+    if(this.email === "" || this.pass === "") this.openDialog("The email and password are required.")
+    else {
+      const response: any = await this.authService.signIn(this.email, this.pass);
+      if (response) {
+        response.subscribe(
+          (r: any)=>{
+            console.log(r);
+            this.data = r;
 
-    if (response) {
-      const user = new UserEntity(
-        response.id,
-        response.name,
-        response.email,
-        response.password,
-        response.type_user
-      )
-
-      this.router.navigate(["home", response.type_user, response.id])
-    }else{
-      console.log('No se encontro el usuario');
+            if(r.status_code !== 202) this.openDialog(r.message);
+            else this.router.navigate(["home", r.user.role, r.user.id])
+          }
+        )
+      }
     }
   }
 }

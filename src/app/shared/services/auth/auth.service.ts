@@ -13,17 +13,24 @@ export class AuthService {
 
   async signIn(email: string, password: string) {
     try {
-      const users = await this.http.get<any>(`${this.baseUrl}/users`).toPromise();
-      const foundUser = users.find((user: any) => user.email === email && user.password === password);
-      if (foundUser) {
-        console.log("User found");
-        return foundUser;
-      } else {
-        console.log("User not found");
-        return null;
-      }
+      return this.http.get<any>(`${this.baseUrl}/auth/login?email=${email}&password=${password}`);
     } catch (error) {
-      console.error(error);
+      console.log('Error to sign in', error);
+      return null;
+    }
+  }
+
+  async signUp(firstName: string, lastName: string, email: string, password: string, role: string) {
+    try {
+      return this.http.post<any>(`${this.baseUrl}/auth/register`, {
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": email,
+        "password": password,
+        "role": role
+      })
+    }catch(e) {
+      console.log('Error to sign up', e);
       return null;
     }
   }

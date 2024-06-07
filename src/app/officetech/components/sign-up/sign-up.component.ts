@@ -10,6 +10,8 @@ import {Router, RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "../../../shared/services/auth/auth.service";
 import {UserEntity} from "../../models/user-entity";
+import {DialogComponent} from "../dialog/dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 
 @Component({
@@ -44,11 +46,40 @@ export class SignUpComponent {
   password_confirm: string = "";
   type_user: string = "";
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router, private authService: AuthService,public dialog: MatDialog) {
     this.hide=true;
   }
 
+  openDialog(message: string) {
+    this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: {message: message}
+    })
+  }
+
+  async signUp() {
+    if(this.first_name === "" || this.last_name === "" || this.email === "" || this.password === "" || this.password_confirm === "" || this.type_user === "") this.openDialog("All fields are required");
+    else if(this.password !== this.password_confirm) this.openDialog("Passwords do not match");
+    else {
+      let response = await this.authService.signUp(this.first_name, this.last_name, this.email, this.password, this.type_user);
+      if(response) {
+        response.subscribe(
+          r=> {
+            if(r.status_code !== 202) this.openDialog(r.message);
+            else {
+              this.goToSubscription();
+            }
+          }
+        )
+      }
+    }
+
+  }
+
   goToSubscription() {
+    this.router.navigate(["sign-up", "subscription"]);
+
+    /*
     this.authService.getUsers().subscribe(
       (users: any) => {
         const length = users.length;
@@ -77,6 +108,8 @@ export class SignUpComponent {
         return 0;
       }
     )
+
+     */
   }
 
   goToSignIn() {
