@@ -67,7 +67,7 @@ export class SignUpComponent {
           r=> {
             if(r.status_code !== 202) this.openDialog(r.message);
             else {
-              this.goToSubscription();
+              this.goToSubscription(r.userInfo.id, r.userInfo.role);
             }
           }
         )
@@ -76,8 +76,8 @@ export class SignUpComponent {
 
   }
 
-  goToSubscription() {
-    this.router.navigate(["sign-up", "subscription"]);
+  goToSubscription(id: number, type_user: string) {
+    this.router.navigate(["sign-up", "subscription", type_user, id]);
 
     /*
     this.authService.getUsers().subscribe(

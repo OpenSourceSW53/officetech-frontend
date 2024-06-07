@@ -67,11 +67,11 @@ export const routes: Routes = [
     component: SignUpComponent
   },
   {
-    path: "sign-up/subscription",
+    path: "sign-up/subscription/:type_user/:id",
     component: SubscriptionComponent
   },
   {
-    path: "sign-up/subscription/payment-details",
+    path: "sign-up/subscription/:type_user/:id/payment-details",
     component: PaymentDetailsComponent
   },
   {

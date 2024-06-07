@@ -10,34 +10,34 @@
       <form [formGroup]="paymentForm" class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>CARDHOLDER NAME</mat-label>
-          <input matInput formControlName="cardholderName" placeholder="John Doe">
+          <input matInput formControlName="cardHolderName" placeholder="John Doe">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>CARD NUMBER</mat-label>
-          <input matInput type="number" formControlName="cardNumber" placeholder="9999999999999999">
+          <input matInput type="number" formControlName="cardNumber" placeholder="4857 4528 1252 3655">
         </mat-form-field>
 
         <div class="expiration-cvv-container">
           <mat-form-field class="expiration-field">
             <mat-label>MONTH</mat-label>
-            <mat-select formControlName="expirationMonth">
+            <mat-select formControlName="expiratoryMonth">
               <mat-option *ngFor="let month of months" [value]="month.value">{{ month.label }}</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>YEAR</mat-label>
-            <mat-select formControlName="expirationYear">
+            <mat-select formControlName="expiratoryYear">
               <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field class="cvv-field">
             <mat-label>CVV</mat-label>
-            <input type="number" matInput formControlName="cvv" placeholder="111" min="0" max="999">
+            <input type="number" matInput formControlName="cvv" placeholder="123" min="100" max="999">
           </mat-form-field>
         </div>
-        <button mat-flat-button color="primary" [disabled]="paymentForm.invalid" (click)="returnStart()">Pay</button>
+        <button mat-flat-button color="primary" [disabled]="paymentForm.invalid" (click)="pay()">Pay</button>
       </form>
     </mat-card-content>
   </mat-card>
