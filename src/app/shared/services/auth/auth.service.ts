@@ -35,6 +35,11 @@ export class AuthService {
     }
   }
 
+  getUserById(id: number) {
+    return this.http.get<any>(`${this.baseUrl}/auth/${id}`);
+
+  }
+
   getUsers() {
     return this.http.get<any>(`${this.baseUrl}/api/v1/users`)
   }

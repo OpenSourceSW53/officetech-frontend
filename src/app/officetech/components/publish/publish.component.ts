@@ -9,6 +9,7 @@ import {ForumService} from "../../services/forum/forum.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import ForumCommentEntity from "../../models/forum-comment.entity";
 import {MatButtonModule} from '@angular/material/button';
+import {AuthService} from "../../../shared/services/auth/auth.service";
 
 @Component({
   selector: 'app-publish',
@@ -42,7 +43,8 @@ export class PublishComponent implements OnInit {
   constructor(
     private forumService: ForumService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private userAuth: AuthService
   ) { }
 
   ngOnInit() {
@@ -75,8 +77,27 @@ export class PublishComponent implements OnInit {
       this.forumService.getForumPostById(postId).subscribe(
         r=>{
           // here call the method to obtain users
+          let image = "";
+          var name = "Tech Company";
+          if(r) {
+            image = "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/nekolas-profile.png";
+            console.log(r)
+            let ola = false;
+            this.userAuth.getUserById(r.companyId).subscribe(
+              (user: any) => {
+                console.log(user)
+                ola = true;
+                var name = user.firstName + " " + user.lastName;
+                this.post = new ForumCommentEntity(r.id, image, name, r.title, r.description, []);
+              }
+            )
+            if(!ola) {
+              this.post = new ForumCommentEntity(r.id, "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Clipart.png", name, r.title, r.description, []);
+            }
+          }else {
 
-          this.post = new ForumCommentEntity(r.id, "asdasd", "asd", r.title, r.description, []);
+
+          }
           /*
           this.forum = r.find((item: any) => item.id_user === userId);
           console.log('post', this.forum.forum_posts[0]);

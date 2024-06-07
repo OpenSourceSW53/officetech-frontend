@@ -67,12 +67,31 @@ export class ForumComponent implements OnInit {
         result.forEach((forum: any)=> {
           // here call the method users
           const forumPost = {
-            image: "asdasd",
-            name: "nekoito",
+            image: "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Clipart.png",
+            name: "Tech Company",
             title: forum.title,
             description: forum.description,
+            postId: forum.postId,
+            companyId: forum.companyId
           }
-          this.data.push(forum);
+
+          console.log('FORUM', forum)
+
+          let response = this.authService.getUserById(forum.companyId);
+          try {
+            response.subscribe(
+              (user: any) => {
+                forumPost.image = "https://raw.githubusercontent.com/AplicacionesWeb-WX54/si730-WX54-Grupo1-Repository/main/assets/members-profile/nekolas-profile.png";
+                forumPost.name = user.firstName + " " + user.lastName;
+              }
+            )
+          }catch(e) {
+            console.log('Not found',e )
+          }
+
+          this.data.push(forumPost);
+
+
         })
 
 

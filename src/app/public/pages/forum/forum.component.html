@@ -34,7 +34,7 @@
 
   <div class="forum__content-comments">
     <div class="comment__container" *ngFor="let e of data">
-      <app-comment [element]="e" (answers)="receiveAnswers($event)"/>
+      <app-comment [element]="e" (answers)="receiveAnswers($event)" [type_user]="(!type_user)? 'technician' : 'company'"/>
 
 
 

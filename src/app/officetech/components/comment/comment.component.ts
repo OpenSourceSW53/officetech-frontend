@@ -18,6 +18,7 @@ import {AuthService} from "../../../shared/services/auth/auth.service";
   styleUrl: './comment.component.css'
 })
 export class CommentComponent implements OnInit{
+  @Input() type_user: any;
   @Input() element: any;
   @Output() answers = new EventEmitter<any>();
   answersLength: number = 0;

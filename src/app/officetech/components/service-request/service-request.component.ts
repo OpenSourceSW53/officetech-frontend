@@ -60,9 +60,13 @@ export class ServiceRequestComponent implements OnInit{
     this.resize();
     this.user_id = this.router.url.split('/')[3];
     //console.log(this.requestServiceService.getItems(), this.user_id)
-    this.requestServiceService.getTechnicians().subscribe(technicians => {
-      this.technicians_available = technicians;
-    });
+    let response = this.requestServiceService.getTechnicians();
+    if(response) {
+      response.subscribe(technicians => {
+        if(technicians)
+          this.technicians_available = technicians;
+      });
+    }
     /*
     this.requestServiceService.getItemCount().subscribe(count => {
       this.cantidadItems = count; // Guarda la cantidad de ítems en la variable cantidadItems
