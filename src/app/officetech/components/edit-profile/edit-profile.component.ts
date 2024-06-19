@@ -10,6 +10,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {SkillDialogComponent} from "../skill-dialog/skill-dialog.component";
 import {NgFor} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
+import {UserEntity} from "../../models/user-entity";
+import {UserService} from "../../services/user/user.service";
 
 @Component({
   selector: 'app-edit-profile',
@@ -29,7 +31,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrl: './edit-profile.component.css'
 })
 export class EditProfileComponent implements OnInit{
-  public skills: string[] = ['Analista de Datos', 'Experto en Ciberseguridad'];
+  public skills: string[] = [];
   firstName: string= "";
   lastName: string= "";
   email: string= "";
@@ -37,20 +39,42 @@ export class EditProfileComponent implements OnInit{
   password: string= "";
   type_user: string = "";
   id_user: string = "";
+  user_data: UserEntity = new UserEntity();
 
   constructor(public dialog: MatDialog, private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.type_user = params['type_user'];
       this.id_user = params['id'];
-    })
+    });
+    this.getUser();
+    this.getSkills();
   }
+
+  getSkills() {
+    this.userService.getSkillsByUserId(parseInt(this.id_user)).subscribe(
+      (data: any) => {
+        console.log('skills', data)
+        this.skills = data;
+      }
+    );
+  }
+  getUser() {
+    this.userService.getUserById(parseInt(this.id_user)).subscribe(
+      (data: any) => {
+        const user = new UserEntity(data.id, data.firstName + " " + data.lastName, data.email, data.password, data.role, data.phone)
+        this.user_data = user;
+      }
+    );
+  }
+
   openDialog(): void {
+    // send the user id to the dialog
     const dialogRef = this.dialog.open(SkillDialogComponent, {
-      width: '20%',
-      height: '40%'
+      width: '250px',
+      data: {userId: this.id_user}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -61,7 +85,20 @@ export class EditProfileComponent implements OnInit{
   }
 
   saveProfile() {
-    this.router.navigate(['profile', this.type_user, this.id_user])
+    const bodyUserEdit = {
+      id: parseInt(this.id_user),
+      firstName: this.firstName,
+      lastName: this.lastName,
+      phone: this.phone,
+      password: this.password
+    }
+    console.log('bodyUserEdit', bodyUserEdit);
+    this.userService.editUserById(parseInt(this.id_user), bodyUserEdit).subscribe(
+      (data: any) => {
+        console.log('osi', data);
+        this.router.navigate(['profile', this.type_user, this.id_user])
+      }
+    );
   }
 
   cancelProfile() {

@@ -22,4 +22,21 @@ export class UserService {
     return this.http.get<UserEntity>(`${this.baseUrl}/services/user/${id}`).pipe(
       tap(data => console.log('Datos del usuario recibidos:', data)));
   }
+
+  getUserById(id: number) {
+    return this.http.get<any>(`${this.baseUrl}/auth/${id}`).pipe(
+      tap(data => console.log('Datos del usuario recibidos:', data)));
+  }
+
+  editUserById(id: number, user: any) {
+    return this.http.put<any>(`${this.baseUrl}/profiles/${id}`, user);
+  }
+
+  getSkillsByUserId(userId: number) {
+    return this.http.get<any>(`${this.baseUrl}/auth/skills/${userId}`);
+  }
+
+  saveSkillByUserId(skill: any) {
+    return this.http.post<any>(`${this.baseUrl}/auth/skills`, skill);
+  }
 }

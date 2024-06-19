@@ -39,12 +39,4 @@ export class AuthService {
     return this.http.get<any>(`${this.baseUrl}/auth/${id}`);
 
   }
-
-  getUsers() {
-    return this.http.get<any>(`${this.baseUrl}/api/v1/users`)
-  }
-
-  createUser(user: any) {
-    return this.http.post<any>(`${this.baseUrl}/api/v1/users`, user)
-  }
 }

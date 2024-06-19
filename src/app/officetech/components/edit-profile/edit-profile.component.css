@@ -145,6 +145,28 @@ h2 {
   margin-top: 2rem;
 }
 
+.edit-email {
+  width: 80%;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid #000;
+  font-family: "Lexend Deca", sans-serif;
+  margin: 0 auto;
+  background-color: #EEEEEE;
+  color: #686D76;
+  font-style: italic;
+  padding: .3rem 0;
+}
+
+.best-skill {
+  background-color: #232F9B;
+  color: #000;
+  padding: .5rem 1rem;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
 /* Asegúrate de revisar los media queries para responsividad en pantallas más pequeñas */
 @media (max-width: 768px) {
   .card, .card2, mat-card {

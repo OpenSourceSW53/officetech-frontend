@@ -1,19 +1,10 @@
-
-
-<mat-dialog-content class="custom-dialog-content">
-
-  <mat-dialog-title mat-dialog-title>Añadir nueva habilidad</mat-dialog-title>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Habilidad</mat-label>
-      <input matInput class="text-box"[(ngModel)]="skill" >
-
-    </mat-form-field>
-    <mat-dialog-actions>
-
-      <button mat-button color="primary" (click)="onNoClick()">Cancelar</button>
-      <button mat-button color="primary" [mat-dialog-close]="skill" cdkFocusInitial>Guardar</button>
-    </mat-dialog-actions>
-  </mat-dialog-content>
-
+<div id="dialog" title="Enter your name">
+  <h3>New Skill</h3>
+  <p>Write your new best skill here...</p>
+  <input type="text" id="name" [(ngModel)]="skill"/>
+  <div class="buttons">
+    <mat-button-toggle (click)="saveSkill()">OK</mat-button-toggle>
+    <mat-button-toggle (click)="cancelSkill()">Cancel</mat-button-toggle>
+  </div>
+</div>
 

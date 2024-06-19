@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import { MatFormFieldModule} from "@angular/material/form-field";
-import {FormsModule} from "@angular/forms";
+import {Component, Input} from '@angular/core';
+import {MatFormFieldControl, MatFormFieldModule} from "@angular/material/form-field";
+import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {
   MatDialogActions,
   MatDialogClose,
@@ -9,6 +9,9 @@ import {
   MatDialogRef
 } from "@angular/material/dialog";
 import {MatButton} from "@angular/material/button";
+import {MatButtonToggle} from "@angular/material/button-toggle";
+import {UserService} from "../../services/user/user.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-skill-dialog',
@@ -22,18 +25,34 @@ import {MatButton} from "@angular/material/button";
     MatDialogContent,
     MatDialogActions,
     MatButton,
+    ReactiveFormsModule,
+    MatButtonToggle,
   ],
   templateUrl: './skill-dialog.component.html',
   styleUrl: './skill-dialog.component.css'
 })
 export class SkillDialogComponent {
-  public skill: string = '';
-  constructor(
-    public dialogRef: MatDialogRef<SkillDialogComponent>) {}
+  @Input() userId: string = "";
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  public skill: string = '';
+  constructor(public userService: UserService, private dialogRef: MatDialogRef<SkillDialogComponent>){
+    console.log(this.userId)
   }
 
+  saveSkill() {
+    const body = {
+      userId: this.userId,
+      skillDescription: this.skill
+    }
+    console.log(this.userId)
+    this.userService.saveSkillByUserId(body).subscribe(data => {
+      this.cancelSkill();
+    });
+  }
+
+  cancelSkill() {
+    this.skill = '';
+    this.dialogRef.close();
+  }
 
 }

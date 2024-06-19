@@ -1,26 +1,24 @@
-mat-form-field {
-  width: 100%; /* Ocupa todo el ancho disponible en el contenedor */
-}
-.custom-dialog-content {
+#dialog {
   display: flex;
-  flex-direction: column; /* Organiza los elementos verticalmente */
-  align-items: center; /* Centra los elementos horizontalmente */
-  padding: 20px; /* Añade algo de espacio alrededor del contenido */
-}
-mat-dialog-title {
-  display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 100%;
-}
-.text-box{
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  align-items: center;
+  text-align: center;
+  font-family: "Lexend Deca", sans-serif;
+  padding: 2rem;
+  height: 100%;
 }
 
-mat-dialog-actions {
-  display: flex;
-  justify-content: space-around; /* Espaciado uniforme entre botones */
-  width: 100%;
-  margin-top: 20px; /* Espacio entre los campos de formulario y los botones */
+h3 {
+  font-size: 1.5rem;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: bold;
 }
+
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+

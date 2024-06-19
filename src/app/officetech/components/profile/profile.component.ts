@@ -34,18 +34,15 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe( params => {
       console.log(params);
+      const userId = params['id'];
       try{
-        this.userService.getUserData().subscribe(
-          (result) => {
-            console.log('hermanito', result)
-            result.forEach((user) => {
-              if (user.id == params["id"]) {
-                this.userData = user;
-              }
-            })
-            console.log('ga', this.userData);
+        this.userService.getUserById(userId).subscribe(
+          (data: any) => {
+            const user = new UserEntity(data.id, data.firstName + " " + data.lastName, data.email, data.password, data.role, data.phone)
+            this.userData = user;
           }
-        )
+        );
+
       } catch(error) {
         console.error('Error al cargar datos de usuario:', error);
       }
