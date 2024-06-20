@@ -39,4 +39,12 @@ export class UserService {
   saveSkillByUserId(skill: any) {
     return this.http.post<any>(`${this.baseUrl}/auth/skills`, skill);
   }
+
+  getAllSkills() {
+    return this.http.get<any>(`${this.baseUrl}/auth/skills`);
+  }
+
+  deleteSkillById(skillId: number) {
+    return this.http.delete<any>(`${this.baseUrl}/auth/skills/${skillId}`);
+  }
 }

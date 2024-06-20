@@ -46,7 +46,8 @@
 
           <button *ngFor="let skill of skills" mat-list-item class="skills__container">
             <mat-icon>star</mat-icon>
-            <span>{{ skill }}</span>
+            <span>{{ skill.name }}</span>
+            <i class="fa-solid fa-trash" (click)="deleteSkill(skill.id)"></i>
           </button>
         </mat-action-list>
       </mat-card-content>

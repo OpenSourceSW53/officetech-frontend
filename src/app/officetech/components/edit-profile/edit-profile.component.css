@@ -167,6 +167,17 @@ h2 {
   text-transform: uppercase;
 }
 
+.fa-trash {
+  color: #ff0000;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all .2s;
+}
+
+.fa-trash:hover {
+  opacity: .5;
+}
+
 /* Asegúrate de revisar los media queries para responsividad en pantallas más pequeñas */
 @media (max-width: 768px) {
   .card, .card2, mat-card {

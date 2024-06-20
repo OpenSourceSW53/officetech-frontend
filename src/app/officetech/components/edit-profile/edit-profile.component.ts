@@ -31,7 +31,7 @@ import {UserService} from "../../services/user/user.service";
   styleUrl: './edit-profile.component.css'
 })
 export class EditProfileComponent implements OnInit{
-  public skills: string[] = [];
+  public skills: any[] = [];
   firstName: string= "";
   lastName: string= "";
   email: string= "";
@@ -78,7 +78,6 @@ export class EditProfileComponent implements OnInit{
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-
         this.skills.push(result);
       }
     });
@@ -92,10 +91,8 @@ export class EditProfileComponent implements OnInit{
       phone: this.phone,
       password: this.password
     }
-    console.log('bodyUserEdit', bodyUserEdit);
     this.userService.editUserById(parseInt(this.id_user), bodyUserEdit).subscribe(
       (data: any) => {
-        console.log('osi', data);
         this.router.navigate(['profile', this.type_user, this.id_user])
       }
     );
@@ -103,5 +100,13 @@ export class EditProfileComponent implements OnInit{
 
   cancelProfile() {
     this.router.navigate(['profile', this.type_user, this.id_user])
+  }
+
+  deleteSkill(skillId: number) {
+    this.userService.deleteSkillById(skillId).subscribe(
+      (data: any) => {
+        this.skills = this.skills.filter(skill => skill.id !== skillId);
+      }
+    )
   }
 }
