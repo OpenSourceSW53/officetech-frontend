@@ -119,11 +119,11 @@ h2 {
 }
 
 .btn {
-  background-color: #232F9B;
+  background-color: #fff;
   padding: .5rem 1rem;
   text-transform: uppercase;
   font-size: 1.2rem;
-  color: #fff;
+  color: #232F9B;
   border-radius: 15px;
   transition: all .3s ease-in-out;
   cursor: pointer;
@@ -176,6 +176,19 @@ h2 {
 
 .fa-trash:hover {
   opacity: .5;
+}
+
+.bg {
+  background-image: url("../../../../assets/images/bg-fondo.png");
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  z-index: -1;
+  bottom: -5%;
+  right: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+
 }
 
 /* Asegúrate de revisar los media queries para responsividad en pantallas más pequeñas */

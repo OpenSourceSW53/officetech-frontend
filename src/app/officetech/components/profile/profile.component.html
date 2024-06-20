@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card *ngIf="userData">
     <div class="content-container">
-      <h2 class="logo-title" aria-label="title" >Perfil</h2>
+      <h2 class="logo-title" aria-label="title" >Profile</h2>
       <div class="logo-container">
         <img [src]="userData.image" alt="OfficeTech" role="img" class="logo-officetech" height="68px">
       </div>
@@ -12,13 +12,13 @@
         </mat-card-header>
 
         <mat-card-content class="input-field">
-          <p><strong>Nombre:</strong> {{ userData.name }}</p>
-          <p><strong>Correo:</strong> {{ userData.email }}</p>
-          <p><strong>Tipo de Usuario:</strong> {{ userData.type_user }}</p>
+          <p><strong>Name:</strong> {{ userData.name }}</p>
+          <p><strong>Email:</strong> {{ userData.email }}</p>
+          <p><strong>Type of user:</strong> {{ userData.type_user }}</p>
         </mat-card-content>
 
 
-        <a class="button" (click)="editProfile()">Editar perfil</a>
+        <a class="button" (click)="editProfile()">Edit profile</a>
 
       </mat-card>
 
