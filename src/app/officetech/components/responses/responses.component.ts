@@ -40,14 +40,14 @@ export class ResponsesComponent implements OnInit{
     });
   }
 
-  private loadPost(postId: number) {
+  private loadPost(postId: number, answers: any = []) {
     try {
       this.forumService.getForumPostById(postId).subscribe(
         (result) => {
           const post = result.resource;
           this.authService.getUserById(post.companyId).subscribe(
             r=> {
-              this.post = new ForumCommentEntity(post.id, "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Clipart.png", r.firstName + " " + r.lastName, post.title, post.description, []);
+              this.post = new ForumCommentEntity(post.id, "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Clipart.png", r.firstName + " " + r.lastName, post.title, post.description, answers);
             }
           )
         }
@@ -61,26 +61,26 @@ export class ResponsesComponent implements OnInit{
       this.forumService.getAnswersByPostId(postId).subscribe(
         (result) => {
           console.log('answers', result)
-          let answers = result.map((answer: any) => {
-            return {
-              name: answer.title,
-              description: answer.description
-            }
+          let answers: any = [];
+          result.forEach((answer: any) => {
+            console.log('answer', answer);
+            let answerFinal = {}
+            this.authService.getUserById(answer.idTechnician).subscribe(
+              r=> {
+                answerFinal = {
+                  name: r.firstName + " " + r.lastName,
+                  description: answer.description
+                };
+
+                answers.push(answerFinal);
+              }
+            );
+            console.log('ola', answers);
           });
 
-          if(answers.length > 0)
-            // @ts-ignore
-            this.post.answers = answers;
+          this.loadPost(postId, answers);
         });
 
-      /*
-      this.forumService.getForumPosts().subscribe(
-        (result) => {
-          console.log('result', result)
-          this.post = result.find((p:any) => p.id_user == postId).forum_posts[0];
-          console.log('post', this.post)
-        }
-      )*/
     } catch (error) {
       console.error('Error al cargar la publicación:', error);
     }
