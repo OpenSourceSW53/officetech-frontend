@@ -33,6 +33,8 @@
   </div>
 
   <div class="forum__content-comments">
+    <app-monkey-not-found *ngIf="data.length === 0 && type_user===1" textString="No posts to display, start creating one!"></app-monkey-not-found>
+    <app-monkey-not-found *ngIf="data.length === 0 && type_user===0" textString="No posts to display, wait for any company to create a post, so you can help them!"></app-monkey-not-found>
     <div class="comment__container" *ngFor="let e of data">
       <app-comment [element]="e" (answers)="receiveAnswers($event)" [type_user]="(!type_user)? 'technician' : 'company'"/>
 

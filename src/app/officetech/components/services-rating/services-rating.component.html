@@ -8,6 +8,7 @@
     <div class="yellow-box">Your rating</div>
   </div>
 
+  <app-monkey-not-found *ngIf="services.length === 0" textString="The services you have performed can be viewed here with the company's rating."></app-monkey-not-found>
   <div class="services__history">
     <div *ngFor="let service of services" class="white-box-container">
       <div class="white-box">

@@ -57,10 +57,32 @@ export class SignUpComponent {
     })
   }
 
+
+
   async signUp() {
     if(this.first_name === "" || this.last_name === "" || this.email === "" || this.password === "" || this.password_confirm === "" || this.type_user === "") this.openDialog("All fields are required");
     else if(this.password !== this.password_confirm) this.openDialog("Passwords do not match");
     else {
+
+      await this.authService.signUpWithToken(this.email, this.password, this.type_user).then((response: any) => {
+        console.log('response', response);
+          response.subscribe(
+            async (r:any) =>  {
+
+              await this.authService.signInWithToken(this.email, this.password).then((response: any) => {
+                response.subscribe(
+                  (r:any) => {
+                    this.authService.saveToken(r.token);
+                  }
+                )
+              })
+
+            }
+          )
+        }
+      )
+
+
       let response = await this.authService.signUp(this.first_name, this.last_name, this.email, this.password, this.type_user);
       if(response) {
         response.subscribe(
@@ -78,38 +100,6 @@ export class SignUpComponent {
 
   goToSubscription(id: number, type_user: string) {
     this.router.navigate(["sign-up", "subscription", type_user, id]);
-
-    /*
-    this.authService.getUsers().subscribe(
-      (users: any) => {
-        const length = users.length;
-
-        const user = new UserEntity(
-          length + 1,
-          this.first_name + " " + this.last_name,
-          this.email,
-          this.password,
-          this.type_user
-        )
-
-        this.authService.createUser(user).subscribe(
-          (response: any) => {
-            console.log('ok', response);
-            this.router.navigate(["sign-up", "subscription"]);
-          },
-          (error: any) => {
-            console.error(error);
-            return 0;
-          }
-        )
-      },
-      (error: any) => {
-        console.error(error);
-        return 0;
-      }
-    )
-
-     */
   }
 
   goToSignIn() {

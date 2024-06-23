@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import {RequestServiceService} from "../../services/request-service/request-service.service";
-import {DatePipe, NgForOf} from "@angular/common";
+import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {UserService} from "../../services/user/user.service";
 import {PanelItemsService} from "../../services/panel/panel-items.service";
+import {MonkeyNotFoundComponent} from "../monkey-not-found/monkey-not-found.component";
 
 interface Service {
   id: number;
@@ -22,7 +23,9 @@ interface Service {
   imports: [
     NgForOf,
     DatePipe,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MonkeyNotFoundComponent,
+    NgIf
   ],
   styleUrls: ['./services-rating.component.css']
 })

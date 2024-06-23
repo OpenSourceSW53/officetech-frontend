@@ -6,6 +6,7 @@ import {PanelItemsService} from "../../../officetech/services/panel/panel-items.
 import {filter} from "rxjs/operators";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {UserService} from "../../../officetech/services/user/user.service";
+import {MonkeyNotFoundComponent} from "../../../officetech/components/monkey-not-found/monkey-not-found.component";
 
 @Component({
   selector: 'app-panel-services',
@@ -14,7 +15,8 @@ import {UserService} from "../../../officetech/services/user/user.service";
     CardComponent,
     CardHeaderComponent,
     NgForOf,
-    NgIf
+    NgIf,
+    MonkeyNotFoundComponent
   ],
   templateUrl: './panel-services.component.html',
   styleUrl: './panel-services.component.css'

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import {RequestServiceService} from "../../services/request-service/request-service.service";
-import {DatePipe, NgForOf} from "@angular/common";
+import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {PanelItemsService} from "../../services/panel/panel-items.service";
-import {UserService} from "../../services/user/user.service";  // Adjust the path accordingly
+import {UserService} from "../../services/user/user.service";
+import {MonkeyNotFoundComponent} from "../monkey-not-found/monkey-not-found.component";  // Adjust the path accordingly
 
 interface Service {
   id: number;
@@ -19,7 +20,9 @@ interface Service {
   standalone: true,
   imports: [
     NgForOf,
-    DatePipe
+    DatePipe,
+    MonkeyNotFoundComponent,
+    NgIf
   ],
   styleUrls: ['./services-ccompany.component.css']
 })

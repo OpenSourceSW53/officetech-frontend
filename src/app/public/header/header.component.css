@@ -59,6 +59,7 @@ mat-toolbar {
 
 .toolbar__content-toggle {
   display: none;
+  cursor:pointer;
 }
 
 .toolbar__content-list-active {

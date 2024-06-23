@@ -14,6 +14,7 @@ import {
 } from "@angular/material/dialog";
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "../../../shared/services/auth/auth.service";
+import {MonkeyNotFoundComponent} from "../../../officetech/components/monkey-not-found/monkey-not-found.component";
 
 @Component({
   selector: 'app-forum',
@@ -27,7 +28,8 @@ import {AuthService} from "../../../shared/services/auth/auth.service";
     MatDialogTitle,
     MatDialogContent,
     MatDialogActions,
-    FormsModule
+    FormsModule,
+    MonkeyNotFoundComponent
   ],
   templateUrl: './forum.component.html',
   styleUrl: './forum.component.css'

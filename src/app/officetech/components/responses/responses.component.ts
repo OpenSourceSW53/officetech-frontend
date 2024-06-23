@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import ForumCommentEntity from "../../models/forum-comment.entity";
 import { ActivatedRoute } from '@angular/router';
 import {AuthService} from "../../../shared/services/auth/auth.service";
+import {MonkeyNotFoundComponent} from "../monkey-not-found/monkey-not-found.component";
 
 @Component({
   selector: 'app-responses',
@@ -15,7 +16,8 @@ import {AuthService} from "../../../shared/services/auth/auth.service";
     MatCardContent,
     MatCardHeader,
     NgForOf,
-    NgIf
+    NgIf,
+    MonkeyNotFoundComponent
   ],
   templateUrl: './responses.component.html',
   styleUrl: './responses.component.css'

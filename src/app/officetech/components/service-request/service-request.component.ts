@@ -111,7 +111,7 @@ export class ServiceRequestComponent implements OnInit{
     console.log(this.date)
     */
     this.addNewService()
-    this.router.navigate(['/services', this.type_user, this.user_id])
+    this.router.navigate(['/home', this.type_user, this.user_id])
   }
 
   formatDate(){

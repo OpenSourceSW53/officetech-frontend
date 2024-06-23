@@ -4,7 +4,8 @@
 
   <div class="panel__container-rows" role="listbox">
     <app-card [data]="data" *ngIf="data.length > 0"/>
-    <h2 *ngIf="!data.length">There is nothing to show here...</h2>
+    <app-monkey-not-found *ngIf="!data.length && type_user==='company'" textString="There is nothing to show here, start by requesting services from our technicians!"></app-monkey-not-found>
+    <app-monkey-not-found *ngIf="!data.length && type_user==='technician'" textString="Your future services with any company will be here!"></app-monkey-not-found>
   </div>
 </div>
 

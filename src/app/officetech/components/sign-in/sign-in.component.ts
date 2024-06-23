@@ -65,6 +65,35 @@ export class SignInComponent {
   async signIn() {
     if(this.email === "" || this.pass === "") this.openDialog("The email and password are required.")
     else {
+      await this.authService.signInWithToken(this.email, this.pass).then((r: any)=>{
+        r.subscribe(async(data:any)=>{
+            console.log(data);
+          if (data.message) this.openDialog(data.message);
+          else {
+            this.authService.saveToken(data.token);
+
+            const response: any = await this.authService.signIn(this.email, this.pass);
+            if (response) {
+              response.subscribe(
+                (r: any)=>{
+                  console.log(r);
+                  this.data = r;
+
+                  if(r.status_code !== 202) this.openDialog(r.message);
+                  else this.router.navigate(["home", r.user.role, r.user.id])
+                }
+              )
+            }
+          }
+
+
+        },
+        (e: any)=>{
+          this.openDialog(e.error.message);
+        })
+      });
+
+      /*
       const response: any = await this.authService.signIn(this.email, this.pass);
       if (response) {
         response.subscribe(
@@ -76,7 +105,7 @@ export class SignInComponent {
             else this.router.navigate(["home", r.user.role, r.user.id])
           }
         )
-      }
+      }*/
     }
   }
 }

@@ -20,6 +20,7 @@
 
     </div>
   </mat-card>
+  <app-monkey-not-found *ngIf="post.answers.length === 0" textString="No answer to show, when our technicians answer, you will be able to read them here"></app-monkey-not-found>
 
   <div class="responses" *ngIf="post.answers.length > 0">
     <div class="response-container">

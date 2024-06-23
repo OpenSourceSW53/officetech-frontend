@@ -2,21 +2,25 @@ import { Injectable } from '@angular/core';
 import ForumCommentEntity from "../../models/forum-comment.entity";
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {AuthService} from "../../../shared/services/auth/auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ForumService {
   baseUrl: string = ""
-  constructor(private http: HttpClient) {
+  headers: any = {}
+  constructor(private http: HttpClient, private authService: AuthService) {
     this.baseUrl = environment.baseUrl;
   }
   getForumPosts() {
-    return this.http.get<any>(`${this.baseUrl}/forum/posts`)
+    const headers = this.authService.getHeadersAuthorization();
+    return this.http.get<any>(`${this.baseUrl}/forum/posts`, {headers})
   }
 
   getForumPostById(id: number) {
-    return this.http.get<any>(`${this.baseUrl}/forum/posts/${id}`)
+    const headers = this.authService.getHeadersAuthorization();
+    return this.http.get<any>(`${this.baseUrl}/forum/posts/${id}`, {headers})
   }
 
   createForumPost(id: number, post: any) {
@@ -24,14 +28,17 @@ export class ForumService {
   }
 
   saveForumPost(post: any) {
-    return this.http.post<any>(`${this.baseUrl}/forum/new-post`, post)
+    const headers = this.authService.getHeadersAuthorization();
+    return this.http.post<any>(`${this.baseUrl}/forum/new-post`, post, {headers})
   }
 
   saveNewAnswerByPostId(newAnswer: any) {
-    return this.http.post<any>(`${this.baseUrl}/answers`, newAnswer)
+    const headers = this.authService.getHeadersAuthorization();
+    return this.http.post<any>(`${this.baseUrl}/answers`, newAnswer, {headers})
   }
 
   getAnswersByPostId(idPost: number) {
-    return this.http.get<any>(`${this.baseUrl}/answers/post/${idPost}`)
+    const headers = this.authService.getHeadersAuthorization();
+    return this.http.get<any>(`${this.baseUrl}/answers/post/${idPost}`, {headers})
   }
 }
